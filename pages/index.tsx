@@ -1,51 +1,15 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Menu, X, Users, MapPin, Calendar, Eye } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Menu, X, Users, MapPin, Calendar } from 'lucide-react';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [visibleElements, setVisibleElements] = useState(new Set());
-  const [visitorCount, setVisitorCount] = useState(0);
-  const [todayVisitors, setTodayVisitors] = useState(0);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    // Visitor Counter Logic
-    const initializeVisitorCounter = () => {
-      try {
-        // Ziyaretçi sayıları
-        const totalVisitors = parseInt(localStorage.getItem('portfolio_total_visitors') || '0');
-        const todayKey = new Date().toDateString();
-        const lastVisitDate = localStorage.getItem('portfolio_last_visit_date');
-        const todayVisitorsCount = parseInt(localStorage.getItem('portfolio_today_visitors') || '0');
-        
-        // Bugünkü ilk ziyaret mi kontrol et
-        if (lastVisitDate !== todayKey) {
-          // Yeni gün başladı, bugünkü sayacı sıfırla
-          localStorage.setItem('portfolio_today_visitors', '1');
-          localStorage.setItem('portfolio_last_visit_date', todayKey);
-          setTodayVisitors(1);
-        } else {
-          // Aynı gün içinde tekrar ziyaret
-          const newTodayCount = todayVisitorsCount + 1;
-          localStorage.setItem('portfolio_today_visitors', newTodayCount.toString());
-          setTodayVisitors(newTodayCount);
-        }
-        
-        // Toplam ziyaretçi sayısını artır
-        const newTotalVisitors = totalVisitors + 1;
-        localStorage.setItem('portfolio_total_visitors', newTotalVisitors.toString());
-        setVisitorCount(newTotalVisitors);
-        
-      } catch (error) {
-        console.error('Visitor counter initialization failed:', error);
-        setVisitorCount(Math.floor(Math.random() * 1000) + 500); // Demo amaçlı
-        setTodayVisitors(Math.floor(Math.random() * 50) + 10);
-      }
-    };
-
-    initializeVisitorCounter();
+ 
 
     observerRef.current = new IntersectionObserver(
       (entries) => {
