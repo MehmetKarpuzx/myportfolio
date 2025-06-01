@@ -325,8 +325,8 @@ const Portfolio = () => {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+   {/* Hero Section */}
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-24">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -336,11 +336,11 @@ const Portfolio = () => {
         <div className="z-10 px-4 w-full">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
             {/* Yazılar */}
-            <div className="md:w-2/3 w-full text-center md:text-left md:pr-12">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
+            <div className="md:w-2/3 w-full text-center md:text-left md:pr-12 mt-8 md:mt-0">
+              <h1 className="text-4xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
                 Muhammet Kaya  <span className="text-purple-400">Yazılım Uzmanı</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto md:mx-0">
+              <p className="text-lg md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto md:mx-0">
                 ASP.NET, Angular, Node.Js ve modern web teknolojileri ile <br />
                 <span className="text-blue-400">ERP, CRM, MES</span> ve <span className="text-purple-400">Sosyal Medya</span> sistemleri geliştiriyorum
               </p>
@@ -357,8 +357,8 @@ const Portfolio = () => {
               </div>
             </div>
             {/* Profil Fotoğrafı */}
-            <div className="md:w-1/3 w-full flex justify-center md:justify-end mt-12 md:mt-0">
-              <div className="w-80 h-80 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
+            <div className="md:w-1/3 w-full flex justify-center md:justify-end mt-8 md:mt-0">
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
                 <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center overflow-hidden">
                   <img src="/kisisel-foto.jpg" alt="Muhammet Kaya" className="w-full h-full object-cover rounded-full" />
                 </div>
