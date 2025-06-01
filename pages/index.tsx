@@ -333,18 +333,6 @@ const Portfolio = () => {
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-          
-          {/* Mobile Visitor Counter */}
-          <div className="lg:hidden flex justify-center space-x-4 pb-2 text-sm text-gray-300">
-            <div className="flex items-center space-x-1">
-              <Eye className="w-3 h-3 text-blue-400" />
-              <span className="text-blue-400 font-semibold">{visitorCount.toLocaleString()}</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <Users className="w-3 h-3 text-green-400" />
-              <span className="text-green-400 font-semibold">{todayVisitors}</span>
-            </div>
-          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -801,18 +789,6 @@ const Portfolio = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center text-gray-400">
             <p className="mb-4 md:mb-0">© 2025 Muhammet Kaya. Tüm hakları saklıdır.</p>
-            
-            {/* Footer Visitor Stats */}
-            <div className="flex items-center space-x-6 text-sm">
-              <div className="flex items-center space-x-2">
-                <Eye className="w-4 h-4 text-blue-400" />
-                <span>Toplam Ziyaret: <span className="text-blue-400 font-semibold">{visitorCount.toLocaleString()}</span></span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Users className="w-4 h-4 text-green-400" />
-                <span>Bugün: <span className="text-green-400 font-semibold">{todayVisitors}</span></span>
-              </div>
-            </div>
           </div>
         </div>
       </footer>
