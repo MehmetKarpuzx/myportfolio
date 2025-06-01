@@ -1,6 +1,7 @@
 'use client'
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Code, Database, Server, Smartphone, ArrowDown, Menu, X, Users, Briefcase, Download, MapPin, Calendar, Eye } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Menu, X, Users, MapPin, Calendar, Eye } from 'lucide-react';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -446,7 +447,7 @@ const Portfolio = () => {
               id="about-content"
             >
               <p className="text-lg text-gray-300 leading-relaxed">
-                Ben Muhammet, Yazılım Geliştirme Uzmanıyım. Bursa Uludağ Üniversitesi'nden mezun oldum. Yaklaşık 4 yıldır yazılım ekosisteminin bir parçasıyım ve sürekli öğrenme ve gelişme tutkusuyla kendimi geliştiriyorum. Hem kendimi hem de üstlendiğim görevleri en iyi şekilde geliştirerek, hem kendime hem de projelerimle şirkete değer katmaya devam ediyorum.
+                Ben Muhammet, Yazılım Geliştirme Uzmanı&apos;yım. Bursa Uludağ Üniversitesi&apos;nden mezun oldum. Yaklaşık 4 yıldır yazılım ekosisteminin bir parçasıyım ve sürekli öğrenme ve gelişme tutkusuyla kendimi geliştiriyorum. Hem kendimi hem de üstlendiğim görevleri en iyi şekilde geliştirerek, hem kendime hem de projelerimle şirkete değer katmaya devam ediyorum.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
                 Microsoft teknolojileri (.NET, SQL Server) ve modern frontend frameworkler (Angular, React) 
