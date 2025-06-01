@@ -1,5 +1,4 @@
 'use client'
-/* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Menu, X, Users, MapPin, Calendar, Eye } from 'lucide-react';
 
@@ -40,7 +39,7 @@ const Portfolio = () => {
         setVisitorCount(newTotalVisitors);
         
       } catch (error) {
-        // localStorage kullanılamıyorsa varsayılan değerler
+        console.error('Visitor counter initialization failed:', error);
         setVisitorCount(Math.floor(Math.random() * 1000) + 500); // Demo amaçlı
         setTodayVisitors(Math.floor(Math.random() * 50) + 10);
       }
