@@ -72,14 +72,44 @@ const Portfolio = () => {
  { name: 'AWS', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" className="w-6 h-6" />, level: 75 },    { name: 'Git', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-6 h-6" />, level: 85 },
   ];
   const experiences = [
+      {
+      company: "Teori Bilgisayar Yazılım ve Dan.Hiz.Ltd.Şti.",
+      logo: "https://teori.com.tr/wp-content/uploads/2023/03/teori-logo.jpg",
+      position: "Kıdemli Yazılım Geliştirici",
+      period: "Haziran 2025 - Günümüz",
+      location: "İstanbul, Türkiye",
+      description:
+        "Şirket uygulamalarının geliştirilmesinden ve bakımından sorumluyum. Rolüm sistem mimarisi tasarımı, arka uç geliştirme ve web uygulaması geliştirme içeriyor. Bilgi ve deneyimimden yararlanarak, uygulamalar sıfırdan oluşturuyorum ve bunları son kullanıcılara teslim ediyorum. Geliştirdiğim projeler arasında otomasyon kontrol sistemleri, bina yönetim sistemleri ve üretim izleme yazılımı yer alıyor",
+      technologies: [
+        ".NET",
+        "ASP.NET Web API",
+        "React",
+        "Redux - Zustand",
+        "Tailwind CSS- Bootstrap",
+        "Angular 15-17",
+        "PostgreSQL",
+        "MongoDB",
+        "MSSQL",
+        "Docker",
+        "Azure",
+        "DDD"
+      ],
+      achievements: [
+        "Kurumsal projelerde yazılım mimarisi ve geliştirme süreçlerini yönettim.",
+        "Sistem mimarisi ve teknik mentorluk yaptım.",
+        "Modern yazılım geliştirme pratiklerini ekibe kazandırdım.",
+        "Yüksek performanslı ve ölçeklenebilir uygulamalar geliştirdim.",
+        "Çok kullanıcılı ve çok kiracılı mimariler tasarladım."
+      ]
+    },
     {
       company: "ASD Laminat",
       logo: "https://www.asdlaminat.com/assets/2018/10/logo-asd-laminate.png",
       position: "Yazılım Uzmanı",
-      period: "Aralık 2024 - Günümüz",
+      period: "Aralık 2024 - Haziran 2025",
       location: "Düzce, Türkiye",
       description:
-        "Fabrika ortamında verimliliği artırmak ve yüksek kalite süreçlerini sağlamak için SAP ile entegre çalışan uygulamalar geliştiriyorum. Üretimde hammadde girişinden OEE takibine, ürün kalite kontrolünden sevkiyata kadar tüm operasyonları uçtan uca yöneten çözümler geliştiriyorum. MES/MOM çözümleriyle entegre, satış ve satın alma süreçlerini hızlandıran, güçlü CRM araçları ve bağımsız SAP modülleriyle iş ihtiyaçlarına özel uygulamalar sunuyorum.",
+        "SAP kullanarak bir fabrika ortamında verimliliği artırmak ve yüksek kaliteli süreçleri sağlamak için tasarlanmış bir uygulama paketine katkıda bulunmak. Hammadde alımından üretim sırasında OEE (Genel Ekipman Etkinliği) takibine, ürün kalite kontrolüne ve sevkiyat yönetimine kadar işlemleri uçtan uca yöneten ve izleyen çözümler geliştirmek. Uygulamalar, fabrika içindeki MES/MOM çözümleriyle sorunsuz entegre olur ve satış ve tedarik için hızlandırılmış iş akışları, sağlam müşteri ilişkileri yönetimi (CRM) araçları ve belirli iş ihtiyaçlarını karşılamak için özelleştirilmiş bağımsız SAP modülleri içerir",
       technologies: [
         "ASP.NET Web API (8.0)",
         "Siemens S7",
@@ -104,35 +134,13 @@ const Portfolio = () => {
       ]
     },
     {
-      company: "Teori Bilgisayar Yazılım ve Dan.Hiz.Ltd.Şti.",
-      logo: "https://teori.com.tr/wp-content/uploads/2023/03/teori-logo.jpg",
-      position: "Kıdemli Yazılım Geliştirici",
-      period: "Ocak 2024 - Aralık 2024",
-      location: "İstanbul, Türkiye",
-      description:
-        ".NET, ASP.NET Web API ve modern teknolojilerle kurumsal projelerde yazılım geliştirme ve mimari sorumluluk üstlendim.",
-      technologies: [
-        ".NET",
-        "ASP.NET Web API",
-        "MSSQL",
-        "Docker",
-        "Azure",
-        "DDD"
-      ],
-      achievements: [
-        "Kurumsal projelerde yazılım mimarisi ve geliştirme süreçlerini yönettim.",
-        "Takım liderliği ve teknik mentorluk yaptım.",
-        "Modern yazılım geliştirme pratiklerini ekibe kazandırdım."
-      ]
-    },
-    {
       company: "İlke Ambalaj San. ve Tic. A.Ş.",
-      logo: "https://media.licdn.com/dms/image/v2/C4D0BAQFWN6coW_NxKg/company-logo_200_200/company-logo_200_200/0/1630474335550?e=1753920000&v=beta&t=IuMjpsZRQN-pu9N8ViVr9GPE2kw6awwY-3lp5m3TPKs",
+      logo: "https://media.licdn.com/dms/image/v2/C4D0BAQFWN6coW_NxKg/company-logo_200_200/company-logo_200_200/0/1630474335550?e=1759968000&v=beta&t=MB-RCCEUGZMK0hzV5TGkLVMrjGNKOcPj_RkdQD6n3u0",
       position: "Yazılım Uzmanı",
       period: "Kasım 2023 - Ekim 2024",
       location: "Gaziantep, Türkiye",
       description:
-        "Tüm operasyonel süreçleri kapsayan özelleştirilmiş ERP yazılımı geliştirdim. Süreç verimliliğini artırmak ve iş birimlerini entegre etmek için ölçeklenebilir ve esnek mimari tasarladım.",
+        "ERP yazılımını, hammadde tedarikinden müşteri sevkiyatına ve satın almadan vardiya takibine kadar tüm operasyonel süreçleri yönetmek ve iyileştirmek için özelleştiriyorum. Bu çözüm, tüm iş birimleri için entegre bir ortam sağlayarak iş akışlarını optimize ediyor, raporlamayı geliştiriyor ve otomatik e dokümantasyon sunuyor. Proje boyunca, süreç verimliliğini ve uyarlanabilirliği artırmak için ölçeklenebilir ve esnek bir mimari üzerine odaklanıyorum.",
       technologies: [
         "ASP.NET (8) MVC",
         "MSSQL",
@@ -156,13 +164,17 @@ const Portfolio = () => {
     },
     {
       company: "ADeko Technologies",
-      logo: "https://media.licdn.com/dms/image/v2/C4D0BAQF8KfHTxztJug/company-logo_200_200/company-logo_200_200/0/1630559889998/adeko_technologies_logo?e=1753920000&v=beta&t=T4Si9Y5ygRZ0EnFMg8JCALXAzzuSWNlR2a84p_DOxpw",
+      logo: "https://www.adeko.com/wp-content/uploads/2016/12/Adeko-Technologies-Logo.png",
       position: "Yazılım Uzmanı Yardımcısı",
       period: "Mayıs 2023 - Ağustos 2023",
       location: "Nilüfer, Bursa, Türkiye",
       description:
-        "aDeko CAD ve CAM uygulamasıyla entegre çalışan CRM sistemi geliştirdim. Tasarım, üretim planlama, malzeme tedariki ve sevkiyat süreçlerini kapsayan kapsamlı bir çözüm sundum.",
+        "aDeko CAD ve CAM uygulamasıyla (XAML kullanarak) entegre edilmiş bir CRM (Assistcool) sistemi geliştirdim, uygulamaya bağlı ürünlerin operasyonlarını yönetmek ve  takip etmek için. CRM uygulaması, tasarım, üretim planlaması, malzeme tedariki  ve sevkiyat gibi süreçleri kapsayan kapsamlı bir çözüm sunuyor. Ek olarak,  uygulama raporlama yetenekleri sunuyor ve müşteri kullanıcı deneyimini  geliştirmeye odaklanıyor.",
       technologies: [
+        "C#",
+        "ASP.NET MVC",
+        "MSSQL",
+        "T-SQL",
         "Bootstrap",
         "Entity Framework",
         "XAML",
@@ -182,7 +194,7 @@ const Portfolio = () => {
       period: "Şubat 2023 - Mayıs 2023",
       location: "Bursa, Türkiye",
       description:
-        "PLC makinelerinin iletişim altyapısını ASP.NET MVC ile kullanıcı arayüzüne entegre ettim. Gerçek zamanlı veri izleme ve uzaktan kontrol imkanı sağladım.",
+        "PLC makineleri PLC makinelerinin iletişim altyapısını ASP.NET MVC çerçevesini kullanarak bir kullanıcı  arayüzüne entegre ettim. Bu, makine verilerinin gerçek zamanlı izlenmesine ve  kontrolüne olanak sağladı. Geliştirdiğim panel aracılığıyla kullanıcılar makineleri uzaktan  yönetebiliyor ve kontrol edebiliyor. Bu çözüm, operatörlerin makinelerle etkili bir şekilde  etkileşime girmesini sağlıyor ve süreçleri optimize ediyornin iletişim altyapısını ASP.NET MVC ile kullanıcı arayüzüne entegre ettim. Gerçek zamanlı veri izleme ve uzaktan kontrol imkanı sağladım.",
       technologies: [
         "ASP.NET MVC",
         "Bootstrap",
@@ -222,37 +234,37 @@ const Portfolio = () => {
   ];
   const projects = [
     {
-      title: "Camply",
-      description: "Camply, kampçılar için tasarlanmış bir sosyal medya ve blog platformudur. Uygulama, kullanıcıların kamp deneyimlerini paylaşmalarına, detaylı blog yazıları yazmalarına, kamp alanları hakkında bilgi edinmelerine ve benzer ilgi alanlarına sahip insanlarla bağlantı kurmalarına olanak tanır",
-      tech: [".NET Core", "Azure", "AWS", "MongoDB", "React Native", "PostgreSQL", "Redis","Docker","GraphQL"],
-      demo: "https://thecamply.com/",
-      image: "https://thecamply.com/assets/images/logo.png",
+      title: "Ignisfer",
+      description: "Ignisfer, kampçılar için tasarlanmış bir sosyal medya ve blog platformudur. Uygulama, kullanıcıların kamp deneyimlerini paylaşmalarına, detaylı blog yazıları yazmalarına, kamp alanları hakkında bilgi edinmelerine ve benzer ilgi alanlarına sahip insanlarla bağlantı kurmalarına olanak tanır",
+      tech: [".NET Core","Python", "Azure", "Redis","RabbitMQ", "AWS", "MongoDB", "React Native", "PostgreSQL","Docker","GraphQL"],
+      demo: "https://ignisfer.com/",
+      github: "#",
+      image: "https://ignisfer.com/favicon.ico",
       isImageUrl: true
     },
     {
-      title: "ProDuck Depo Yönetim Sistemi",
-      description: "ProDuck, depo yönetimi ve envanter kontrolü için geliştirilmiş bir uygulamadır. Kullanıcılar, ürünleri takip edebilir, envanter seviyelerini izleyebilir ve depo süreçlerini optimize edebilir.",
-      tech: ["Angular", "PostgreSQL", ".NET", "Material UI"],
-      github: "https://github.com/kaya2m/proDuck-wms",
-      demo: "#",
-      image: "/produck-logo.png",
+      title: "KENT ERP",
+      description: "Fabrika içi operasyonel süreçleri ve müşteri ilişkilerini yöneten, Logo ERP entegrasyonu ile finans ve muhasebe işlemlerini merkezi hale getiren kurumsal bir uygulama geliştirdim. Satın alma, üretim, sevkiyat ve CRM süreçlerini dijitalleştirerek iş akışlarını hızlandırdım ve süreç verimliliğini artırdım.",
+      tech: ["ASP.NET MVC","Angular.JS", "MSSQL / T-SQL", "Bootstrap", "Entity Framework", "IIS"],
+      demo: "https://erp.ilkeambalaj.com/",
+      github: "#",
+      image: "https://media.licdn.com/dms/image/v2/C4D0BAQFWN6coW_NxKg/company-logo_200_200/company-logo_200_200/0/1630474335550?e=1759968000&v=beta&t=MB-RCCEUGZMK0hzV5TGkLVMrjGNKOcPj_RkdQD6n3u0",
       isImageUrl: false
     },
   {
-      title: "NET Bina Yönetim Sistemi",
-      description: "Bina yönetimi süreçlerini dijitalleştirmek ve kolaylaştırmak amacıyla geliştirilmiş bir web uygulamasıdır. Site yöneticileri ve bina sakinleri için şeffaf, erişilebilir ve kullanımı kolay bir çözüm sunar.",
-      tech: ["Angular", ".NET Core", "PostgreSQL","Docker","Çok Kiracılı Mimari","Domain Odaklı Tasarım","CQRS", "Event Sourcing"],
-      github: "https://github.com/kaya2m/NET_BYS",
+      title: "Ignisfer Manage - Kamp Yönetim Sistemi",
+      description: " Ignisfer Manage, kamp işletmecileri için tasarlanmış kapsamlı bir kamp yönetim sistemidir. Bu uygulama, kamp rezervasyonlarını, müşteri ilişkilerini ve operasyonel süreçleri tek bir platformda yönetmeyi kolaylaştırır. Kullanıcı dostu arayüzü ve güçlü özellikleriyle kamp sahiplerine işlerini daha verimli ve etkili bir şekilde yürütme imkanı sunar.",
+      tech: ["React", ".NET Core", "PostgreSQL","Docker","Çok Kiracılı Mimari","CQRS", "Event Sourcing", "Redis", "RabbitMQ"],
       demo: "https://github.com/kaya2m/net-bys",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg"
+      github: "#",
+      image: "https://ignisfer.com/logo/ignisfer-logo.svg"
     },
     {
-      title: "AsyncSqlTool - SQL Server Veri Senkronizasyonu",
-      description: "Async SQL Tool, çeşitli veritabanı sistemleri ile SQL Server arasında kesintisiz veri senkronizasyonu için güçlü bir veritabanı yardımcı programıdır. Bu uygulama, kullanıcıların kaynak veritabanlarını sorgulamasına, sütun veri türlerini hassas şekilde eşlemesine ve veri bütünlüğünü koruyarak verileri verimli bir şekilde aktarmasına olanak tanır.",
-      tech: [".NET Core", "DevExpress Blazor", "SQL Server","SAP HANA" ,"PostgreSQL", "MySQL", "SQLite"],
-      github: "https://github.com/kaya2m/AsyncSqlTool",
-      demo: "#",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
+      title: "ASD Soft V2 ",
+      description: "ASD Soft V2, üretim süreçlerini optimize etmek ve verimliliği artırmak için tasarlanmış kapsamlı bir üretim yönetim/takip çözümüdür. Bu uygulama, üretim planlaması, malzeme yönetimi, kalite kontrol ve iş gücü yönetimi gibi temel işlevleri entegre ederek işletmelerin operasyonel verimliliğini artırmalarına yardımcı olur.",
+      tech: [".NET Core", "DevExpress", "SQL Server","SAP HANA" ,"MSSQL", "Angular 15-17", "Docker", "Azure"],
+      github: "#",
+      image: "https://avatars.githubusercontent.com/u/192769476?s=200&v=4"
     }
   ];
 
