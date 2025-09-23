@@ -32,7 +32,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'team', 'contact'];
+      const sections = ['home', 'about', 'skills', 'experience', 'projects','contact'];
       const scrollPosition = window.scrollY + 100;
 
       sections.forEach(section => {
@@ -61,211 +61,118 @@ const Portfolio = () => {
   const skills = [
     { name: 'C#', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" className="w-6 h-6" />, level: 95 },
     { name: 'ASP.NET', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="ASP.NET" className="w-6 h-6" />, level: 95 },
-    { name: 'Angular', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" className="w-6 h-6" />, level: 90 },
     { name: 'SQL Server', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server" className="w-6 h-6" />, level: 88 },
-    { name: 'MongoDB', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-6 h-6" />, level: 85 },
-    { name: 'TypeScript', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-6 h-6" />, level: 87 },
     { name: 'JavaScript', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-6 h-6" />, level: 85 },
     { name: 'Node.js', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-6 h-6" />, level: 82 },
-    { name: 'Docker', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" className="w-6 h-6" />, level: 80 },
-    { name: 'Azure', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" className="w-6 h-6" />, level: 78 },
- { name: 'AWS', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" className="w-6 h-6" />, level: 75 },    { name: 'Git', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="w-6 h-6" />, level: 85 },
   ];
   const experiences = [
       {
-      company: "Teori Bilgisayar Yazılım ve Dan.Hiz.Ltd.Şti.",
-      logo: "https://teori.com.tr/wp-content/uploads/2023/03/teori-logo.jpg",
-      position: "Kıdemli Yazılım Geliştirici",
-      period: "Haziran 2025 - Günümüz",
-      location: "İstanbul, Türkiye",
+      company: "Şahinbey Belediyesi",
+      logo: "/sahinbey-logo.jpg",
+      position: "Yazılım Geliştiricisi",
+      period: "Eylül 2025 - Günümüz",
+      location: "Gaziantep, Türkiye",
       description:
-        "Şirket uygulamalarının geliştirilmesinden ve bakımından sorumluyum. Rolüm sistem mimarisi tasarımı, arka uç geliştirme ve web uygulaması geliştirme içeriyor. Bilgi ve deneyimimden yararlanarak, uygulamalar sıfırdan oluşturuyorum ve bunları son kullanıcılara teslim ediyorum. Geliştirdiğim projeler arasında otomasyon kontrol sistemleri, bina yönetim sistemleri ve üretim izleme yazılımı yer alıyor",
+        "Belediyeye ait  uygulamaların geliştirilmesinden ve bakımından sorumluyum. Rolüm sistem mimarisi tasarımı, arka uç geliştirme ve web uygulaması geliştirme içeriyor. Bilgi ve deneyimimden yararlanarak, uygulamalar sıfırdan oluşturuyorum ve bunları son kullanıcılara teslim ediyorum.",
       technologies: [
         ".NET",
         "ASP.NET Web API",
         "React",
-        "Redux - Zustand",
+        "Flutter",
         "Tailwind CSS- Bootstrap",
-        "Angular 15-17",
-        "PostgreSQL",
-        "MongoDB",
-        "MSSQL",
-        "Docker",
-        "Azure",
-        "DDD"
+        "MSSQL"
+      
       ],
       achievements: [
-        "Kurumsal projelerde yazılım mimarisi ve geliştirme süreçlerini yönettim.",
-        "Sistem mimarisi ve teknik mentorluk yaptım.",
-        "Modern yazılım geliştirme pratiklerini ekibe kazandırdım.",
+        "Kurumsal projelerde yazılım mimarisi ve geliştirme süreçlerinde aktif rol aldım.",
+     
+        
         "Yüksek performanslı ve ölçeklenebilir uygulamalar geliştirdim.",
-        "Çok kullanıcılı ve çok kiracılı mimariler tasarladım."
+        "Çok kullanıcılı mimariler tasarladım."
       ]
     },
     {
-      company: "ASD Laminat",
-      logo: "https://www.asdlaminat.com/assets/2018/10/logo-asd-laminate.png",
-      position: "Yazılım Uzmanı",
-      period: "Aralık 2024 - Haziran 2025",
-      location: "Düzce, Türkiye",
-      description:
-        "SAP kullanarak bir fabrika ortamında verimliliği artırmak ve yüksek kaliteli süreçleri sağlamak için tasarlanmış bir uygulama paketine katkıda bulunmak. Hammadde alımından üretim sırasında OEE (Genel Ekipman Etkinliği) takibine, ürün kalite kontrolüne ve sevkiyat yönetimine kadar işlemleri uçtan uca yöneten ve izleyen çözümler geliştirmek. Uygulamalar, fabrika içindeki MES/MOM çözümleriyle sorunsuz entegre olur ve satış ve tedarik için hızlandırılmış iş akışları, sağlam müşteri ilişkileri yönetimi (CRM) araçları ve belirli iş ihtiyaçlarını karşılamak için özelleştirilmiş bağımsız SAP modülleri içerir",
-      technologies: [
-        "ASP.NET Web API (8.0)",
-        "Siemens S7",
-        "Modbus",
-        "Dapper",
-        "MSSQL",
-        "Angular 15-17",
-        "Blazor",
-        "DevExtreme",
-        "RxJS",
-        "Bootstrap",
-        "Docker",
-        "TypeScript",
-        "Git",
-        "GitHub",
-        "DDD"
-      ],
-      achievements: [
-        "Fabrika süreçlerinde uçtan uca dijitalleşme ve otomasyon sağladım.",
-        "MES/MOM ve SAP entegrasyonları ile operasyonel verimlilik artırıldı.",
-        "Satış, satın alma ve sevkiyat süreçlerinde iş akışlarını hızlandıran uygulamalar geliştirdim."
-      ]
-    },
-    {
-      company: "İlke Ambalaj San. ve Tic. A.Ş.",
-      logo: "https://media.licdn.com/dms/image/v2/C4D0BAQFWN6coW_NxKg/company-logo_200_200/company-logo_200_200/0/1630474335550?e=1759968000&v=beta&t=MB-RCCEUGZMK0hzV5TGkLVMrjGNKOcPj_RkdQD6n3u0",
-      position: "Yazılım Uzmanı",
-      period: "Kasım 2023 - Ekim 2024",
+      company: "SANKO Holding",
+      logo: "sanko-logo.png",
+      position: "Yazılım Geliştirme Stajyeri",
+      period: "Şubat 2025 - Haziran 2025",
       location: "Gaziantep, Türkiye",
       description:
-        "ERP yazılımını, hammadde tedarikinden müşteri sevkiyatına ve satın almadan vardiya takibine kadar tüm operasyonel süreçleri yönetmek ve iyileştirmek için özelleştiriyorum. Bu çözüm, tüm iş birimleri için entegre bir ortam sağlayarak iş akışlarını optimize ediyor, raporlamayı geliştiriyor ve otomatik e dokümantasyon sunuyor. Proje boyunca, süreç verimliliğini ve uyarlanabilirliği artırmak için ölçeklenebilir ve esnek bir mimari üzerine odaklanıyorum.",
+      "Stajım sırasında .NET Core teknolojileriyle web tabanlı uygulama geliştirme süreçlerine katkıda bulundum. Katıldığım projelerde arka uç geliştirme, API entegrasyonu ve veritabanı operasyonları üzerinde çalıştım. MS SQL Server kullanarak veri modelleme, sorgu optimizasyonu ve CRUD operasyonları gerçekleştirdim. Ayrıca, temel seviye Entity Framework Core kullanarak veri erişim katmanları oluşturma konusunda deneyim kazandım. Ekip iş birliklerinde aktif olarak yer aldım ve çevik metodolojiler kullanarak proje geliştirme süreçlerine katkıda bulundum.",
       technologies: [
-        "ASP.NET (8) MVC",
+        "ASP.NET Web API (8.0)",
+        
         "MSSQL",
-        "T-SQL",
-        "MongoDB",
-        "Entity Framework",
-        "Angular.js",
-        "DevExtreme",
-        "JQuery",
-        "Ajax",
-        "TFS",
-        "Docker",
-        "Azure",
-        "IIS"
-      ],
-      achievements: [
-        "Tüm iş birimlerini entegre eden ERP çözümü geliştirdim.",
-        "Agile ve CI/CD metodolojileriyle geliştirme süreçlerini yönettim.",
-        "Raporlama ve otomatik e-belge süreçlerini optimize ettim."
-      ]
-    },
-    {
-      company: "ADeko Technologies",
-      logo: "https://www.adeko.com/wp-content/uploads/2016/12/Adeko-Technologies-Logo.png",
-      position: "Yazılım Uzmanı Yardımcısı",
-      period: "Mayıs 2023 - Ağustos 2023",
-      location: "Nilüfer, Bursa, Türkiye",
-      description:
-        "aDeko CAD ve CAM uygulamasıyla (XAML kullanarak) entegre edilmiş bir CRM (Assistcool) sistemi geliştirdim, uygulamaya bağlı ürünlerin operasyonlarını yönetmek ve  takip etmek için. CRM uygulaması, tasarım, üretim planlaması, malzeme tedariki  ve sevkiyat gibi süreçleri kapsayan kapsamlı bir çözüm sunuyor. Ek olarak,  uygulama raporlama yetenekleri sunuyor ve müşteri kullanıcı deneyimini  geliştirmeye odaklanıyor.",
-      technologies: [
-        "C#",
-        "ASP.NET MVC",
-        "MSSQL",
-        "T-SQL",
+        
+        "Blazor",
+      
         "Bootstrap",
-        "Entity Framework",
-        "XAML",
+       
         "Git",
-        "BitBucket"
+        "GitHub"
+        
       ],
       achievements: [
-        "CAD/CAM uygulamalarıyla entegre CRM sistemi geliştirdim.",
-        "Kullanıcı deneyimini artıran raporlama ve takip modülleri ekledim.",
-        "Versiyon kontrolü ve proje yönetiminde aktif rol aldım."
+        "Kurumsal süreçlerde uçtan uca dijitalleşme ve otomasyon sağladım.",
+        "Modern teknolojiler kullanarak ekibe katkı sağladım."
       ]
     },
     {
-      company: "İletişim Yazılım",
-      logo: "https://www.iletisimyazilim.com/application/themes/mediaclick/assets/img/logo.svg",
-      position: "Yazılım Uzmanı Stajyeri",
-      period: "Şubat 2023 - Mayıs 2023",
-      location: "Bursa, Türkiye",
+      company: "HA5 Arge İnovasyon ve Tasarım San. Ltd. Şti.",
+      position: "Yönetim Bilişim Sistemleri Uzmanı",
+      period: "Haziran 2023 - Ekim 2023",
+      location: "Gaziantep, Türkiye",
       description:
-        "PLC makineleri PLC makinelerinin iletişim altyapısını ASP.NET MVC çerçevesini kullanarak bir kullanıcı  arayüzüne entegre ettim. Bu, makine verilerinin gerçek zamanlı izlenmesine ve  kontrolüne olanak sağladı. Geliştirdiğim panel aracılığıyla kullanıcılar makineleri uzaktan  yönetebiliyor ve kontrol edebiliyor. Bu çözüm, operatörlerin makinelerle etkili bir şekilde  etkileşime girmesini sağlıyor ve süreçleri optimize ediyornin iletişim altyapısını ASP.NET MVC ile kullanıcı arayüzüne entegre ettim. Gerçek zamanlı veri izleme ve uzaktan kontrol imkanı sağladım.",
+      "Pozisyonum kapsamında, kurum içi süreçleri dijitalleştirmeyi amaçlayan masaüstü uygulamaları geliştirdim. Özellikle, C# ve .NET Framework kullanarak Windows Forms tabanlı bir uygulama tasarlayıp geliştirdim. Uygulama, kullanıcı yönetimi, veri giriş/çıkış işlemleri ve raporlama gibi temel işlevleri içeriyordu. SQL Server ile entegre olan sistem, veritabanı işlemlerinin güvenli ve verimli bir şekilde yürütülmesini sağladı. Proje yaşam döngüsü boyunca analiz, geliştirme, test ve bakım aşamalarında aktif olarak yer aldım.",
       technologies: [
         "ASP.NET MVC",
-        "Bootstrap",
+        "MSSQL",
+        
         "Entity Framework",
-        "PLC",
-        "C#"
+        
+        "JQuery",
+        "Ajax"
+       
+       
+        
       ],
       achievements: [
-        "Gerçek zamanlı makine izleme ve kontrol paneli geliştirdim.",
-        "Operatörlerin makinelerle etkileşimini kolaylaştırdım.",
-        "Üretim süreçlerinde verimlilik ve izlenebilirlik sağladım."
+        "Depo ve Stok yönetimi için sıfırdan uygulama geliştirdim"
+       
       ]
-    }
+    },
+    
+    
   ];
 
- const teamMembers = [
-    {
-      name: "Talha Önder",
-      role: "Mobil Geliştirici",
-      image: "https://media.licdn.com/dms/image/v2/D4D03AQG4G98nHpw_eA/profile-displayphoto-shrink_400_400/B4DZcHnMdSG8Ao-/0/1748179407228?e=1754524800&v=beta&t=YLsD-jh8Fq3PvYgY6XTUJ5ntwupTCgqWcS9RuLQx9VE",
-      linkedin: "https://www.linkedin.com/in/talhaonder/",
-      github: "https://github.com/talhaonder",
-      portfolio: "https://talhaonder.com/", 
-      skills: ["React Native", "JavaScript", "NodeJs","Firebase"],
-      isImageUrl: true
-    },
-    {
-      name: "Yunus Emre Öneç",
-      role: "Full-Stack Geliştirici",
-      image: "https://media.licdn.com/dms/image/v2/D4D03AQEuXSibu0t17w/profile-displayphoto-shrink_200_200/B4DZccLXfBIEAk-/0/1748524433459?e=1754524800&v=beta&t=68c5M56S9t-zI_vFnKBPRGns_depNKpd_qH2rLWZqIU",
-      linkedin: "https://www.linkedin.com/in/yunusemreonec/", 
-      github: "http://github.com/yunusonec",
-      portfolio: "https://www.yunusemreonec.com/", 
-      skills: ["ASP.NET","TypeScript" ,"Angular", "MsSQL","Devexpress"],
-      isImageUrl: true
-    },
-  ];
   const projects = [
     {
-      title: "Ignisfer",
-      description: "Ignisfer, kampçılar için tasarlanmış bir sosyal medya ve blog platformudur. Uygulama, kullanıcıların kamp deneyimlerini paylaşmalarına, detaylı blog yazıları yazmalarına, kamp alanları hakkında bilgi edinmelerine ve benzer ilgi alanlarına sahip insanlarla bağlantı kurmalarına olanak tanır",
-      tech: [".NET Core","Python", "Azure", "Redis","RabbitMQ", "AWS", "MongoDB", "React Native", "PostgreSQL","Docker","GraphQL"],
-      demo: "https://ignisfer.com/",
-      github: "#",
-      image: "https://ignisfer.com/favicon.ico",
+      title: "Enerji Veri Toplama",
+      description: "Bu projede, staj dönemimde Yazılım Uzmanı Tufan bey ile enerji tüketim verilerinin toplanması, işlenmesi ve görselleştirilmesi amacıyla modüler bir yazılım geliştirdik. Proje kapsamında: C# ve .NET Core kullanarak çok katmanlı bir mimari (WebUI, Repository, Entities) oluşturuldu. Entity Framework Core ile SQL Server üzerinde veritabanı işlemleri gerçekleştirildi. OleDbReader bileşeni aracılığıyla farklı veri kaynaklarından veri alımı sağlandı. Kullanıcı arayüzü için ve web arayüzü için ASP.NET Core MVC teknolojileri entegre edildi. Proje, test ve bakım süreçlerini kapsayacak şekilde SuperFilm.Enerji.TestClient modülü ile desteklendi. Bu proje sayesinde, kurumsal düzeyde veri işleme ve enerji yönetimi çözümleri geliştirme konusunda deneyim kazandım.",
+      tech: [".NET Core","Entity Framework","MS SQL"],
+      
+      github: "https://github.com/TufanYilmaz/EnerjiVeritoplamaTanimlama",
+      image: "enerji.jpeg",
       isImageUrl: true
     },
     {
-      title: "KENT ERP",
-      description: "Fabrika içi operasyonel süreçleri ve müşteri ilişkilerini yöneten, Logo ERP entegrasyonu ile finans ve muhasebe işlemlerini merkezi hale getiren kurumsal bir uygulama geliştirdim. Satın alma, üretim, sevkiyat ve CRM süreçlerini dijitalleştirerek iş akışlarını hızlandırdım ve süreç verimliliğini artırdım.",
-      tech: ["ASP.NET MVC","Angular.JS", "MSSQL / T-SQL", "Bootstrap", "Entity Framework", "IIS"],
-      demo: "https://erp.ilkeambalaj.com/",
-      github: "#",
-      image: "https://media.licdn.com/dms/image/v2/C4D0BAQFWN6coW_NxKg/company-logo_200_200/company-logo_200_200/0/1630474335550?e=1759968000&v=beta&t=MB-RCCEUGZMK0hzV5TGkLVMrjGNKOcPj_RkdQD6n3u0",
+      title: ".NET Core AI",
+      description:".NET Core ekosisteminde kişisel öğrenme ve Ar-Ge amaçlı geliştirdiğim bu projede, tek bir çözüm içinde organize ettiğim 20’den fazla katmanlı projede OpenAI (Chat, Whisper, DALL·E), Google Cloud Vision & Tesseract OCR, RapidAPI gibi AI servislerini entegre ederek haber özetleme, PDF analizi, duygu analizi, yemek tarifi önerisi gibi senaryoları demo’ladım; C# ve ASP.NET Core MVC ile RESTful servisler, EF Core & SQL Server ile veri erişimi, HTML/CSS/JS ile arayüzler, async/await ve DI ile API tüketimi, JSON veri serileştirme gibi teknolojilerle derinlemesine deneyim kazandım.",
+      tech: ["ASP.NET MVC", "MSSQL / T-SQL", "Bootstrap", "Entity Framework"],
+      
+      github: "https://github.com/MehmetKarpuzx/NetCoreAI",
+      image:"netcoreai.jpeg",
       isImageUrl: false
     },
   {
-      title: "Ignisfer Manage - Kamp Yönetim Sistemi",
-      description: " Ignisfer Manage, kamp işletmecileri için tasarlanmış kapsamlı bir kamp yönetim sistemidir. Bu uygulama, kamp rezervasyonlarını, müşteri ilişkilerini ve operasyonel süreçleri tek bir platformda yönetmeyi kolaylaştırır. Kullanıcı dostu arayüzü ve güçlü özellikleriyle kamp sahiplerine işlerini daha verimli ve etkili bir şekilde yürütme imkanı sunar.",
-      tech: ["React", ".NET Core", "PostgreSQL","Docker","Çok Kiracılı Mimari","CQRS", "Event Sourcing", "Redis", "RabbitMQ"],
-      demo: "https://github.com/kaya2m/net-bys",
-      github: "#",
-      image: "https://ignisfer.com/logo/ignisfer-logo.svg"
-    },
-    {
-      title: "ASD Soft V2 ",
-      description: "ASD Soft V2, üretim süreçlerini optimize etmek ve verimliliği artırmak için tasarlanmış kapsamlı bir üretim yönetim/takip çözümüdür. Bu uygulama, üretim planlaması, malzeme yönetimi, kalite kontrol ve iş gücü yönetimi gibi temel işlevleri entegre ederek işletmelerin operasyonel verimliliğini artırmalarına yardımcı olur.",
-      tech: [".NET Core", "DevExpress", "SQL Server","SAP HANA" ,"MSSQL", "Angular 15-17", "Docker", "Azure"],
-      github: "#",
-      image: "https://avatars.githubusercontent.com/u/192769476?s=200&v=4"
+      title: "SANShine Şirket Yönetim Portalı",
+      description:"Kurumsal iş süreçlerini dijitalleştiren ve merkezi yönetimi sağlayan tam kapsamlı bir web portalı geliştirdim; C# ile ASP.NET MVC tabanlı çok katmanlı (UI, Business, Data) mimari kurarak EF Core/ADO.NET ile optimize edilmiş SQL Server veri modelleri oluşturdum, RBAC tabanlı rol yetkilendirme mekanizmalarıyla kullanıcı erişimlerini yönettim, HTML/CSS/Bootstrap ile responsive arayüzler tasarlayıp jQuery & AJAX ile dinamik içerik ve form validasyonu sağlayarak masaüstü ve mobil cihazlarda tutarlı kullanıcı deneyimi sundum.",
+      tech: [ ".NET Core", "MS SQL","Entity Framework Core","Çok Katmanlı Mimari"],
+      demo: "",
+      github: "https://github.com/MehmetKarpuzx/SANShineCompanyManagamentPortal",
+      image: "sanshine.jpeg"
     }
+  
   ];
 
   return (
@@ -275,7 +182,7 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
         <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-          <img src="/kisisel-logo.png" alt="" className="h-10 w-auto" />
+          <img src="/mehmetkarpuz-kisisel-logo.png" alt="" className="h-10 w-auto" />
         </div>
             
             {/* Desktop Menu */}
@@ -286,7 +193,7 @@ const Portfolio = () => {
                 {id: 'skills', label: 'Yetenekler'},
                 {id: 'experience', label: 'Deneyim'},
                 {id: 'projects', label: 'Projeler'},
-                {id: 'team', label: 'Takım'},
+                
                 {id: 'contact', label: 'İletişim'}
               ].map((item) => (
                 <button
@@ -321,7 +228,7 @@ const Portfolio = () => {
                 {id: 'skills', label: 'Yetenekler'},
                 {id: 'experience', label: 'Deneyim'},
                 {id: 'projects', label: 'Projeler'},
-                {id: 'team', label: 'Takım'},
+                
                 {id: 'contact', label: 'İletişim'}
               ].map((item) => (
                 <button
@@ -350,29 +257,27 @@ const Portfolio = () => {
             {/* Yazılar */}
             <div className="md:w-2/3 w-full text-center md:text-left md:pr-12 mt-8 md:mt-0">
               <h1 className="text-4xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
-                Muhammet Kaya  <span className="text-purple-400">Yazılım Uzmanı</span>
+                Mehmet Karpuz   <span className="text-purple-400">Yazılım Geliştiricisi</span>
               </h1>
-              <p className="text-lg md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto md:mx-0">
-                ASP.NET, Angular, Node.Js ve modern web teknolojileri ile <br />
-                <span className="text-blue-400">ERP, CRM, MES</span> ve <span className="text-purple-400">Sosyal Medya</span> sistemleri geliştiriyorum
-              </p>
+             
               <div className="flex justify-center md:justify-start space-x-6 mb-12">
-                <a href="https://github.com/kaya2m" className="p-3 bg-blue-600/20 rounded-full hover:bg-blue-600/30 transition-all duration-300 hover:scale-110">
+                <a href="https://github.com/MehmetKarpuzx" className="p-3 bg-blue-600/20 rounded-full hover:bg-blue-600/30 transition-all duration-300 hover:scale-110">
                   <Github className="w-6 h-6" />
                 </a>
-                <a href="https://www.linkedin.com/in/muhammet-kaya-60b36b213/" className="p-3 bg-blue-600/20 rounded-full hover:bg-blue-600/30 transition-all duration-300 hover:scale-110">
+                <a href="https://www.linkedin.com/in/mehmet-karpuz/" className="p-3 bg-blue-600/20 rounded-full hover:bg-blue-600/30 transition-all duration-300 hover:scale-110">
                   <Linkedin className="w-6 h-6" />
                 </a>
-                <a href="mailto:mkaya349@hotmail.com" className="p-3 bg-blue-600/20 rounded-full hover:bg-blue-600/30 transition-all duration-300 hover:scale-110">
+                <a href="mailto:mehmetkarpuz.business@gmail.com" className="p-3 bg-blue-600/20 rounded-full hover:bg-blue-600/30 transition-all duration-300 hover:scale-110">
                   <Mail className="w-6 h-6" />
                 </a>
               </div>
             </div>
             {/* Profil Fotoğrafı */}
             <div className="md:w-1/3 w-full flex justify-center md:justify-end mt-8 md:mt-0">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
+              <div className="w-64 h-64 md:w-100 md:h-100 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
                 <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center overflow-hidden">
-                  <img src="/kisisel-foto.jpg" alt="Muhammet Kaya" className="w-full h-full object-cover rounded-full" />
+                  <video src="/yazılım.mp4" autoPlay muted loop playsInline></video>
+                  
                 </div>
               </div>
             </div>
@@ -410,14 +315,14 @@ const Portfolio = () => {
               id="about-content"
             >
               <p className="text-lg text-gray-300 leading-relaxed">
-                Ben Muhammet, Yazılım Geliştirme Uzmanı&apos;yım. Bursa Uludağ Üniversitesi&apos;nden mezun oldum. Yaklaşık 4 yıldır yazılım ekosisteminin bir parçasıyım ve sürekli öğrenme ve gelişme tutkusuyla kendimi geliştiriyorum. Hem kendimi hem de üstlendiğim görevleri en iyi şekilde geliştirerek, hem kendime hem de projelerimle şirkete değer katmaya devam ediyorum.
+                Ben Mehmet, Yazılım Geliştiricisiyim. İskenderun Teknik Üniversitesi, Yönetim Bilişim Sistemleri bölümünden 3.48/4 ortalamayla mezun oldum. Yaklaşık 1 yıldır yazılım ekosisteminin bir parçasıyım ve sürekli öğrenme ve gelişme tutkusuyla kendimi geliştiriyorum. Hem kendimi hem de üstlendiğim görevleri en iyi şekilde geliştirerek, hem kendime hem de projelerimle şirkete değer katmaya devam ediyorum.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Microsoft teknolojileri (.NET, SQL Server) ve modern frontend frameworkler (Angular, React) 
+                Microsoft teknolojileri (.NET, SQL Server) 
                 ile ölçeklenebilir ve performanslı web uygulamaları tasarlayıp geliştiriyorum.
               </p>
               <div className="flex flex-wrap gap-3">
-                {['ERP Sistemleri', 'CRM Çözümleri', 'MES Uygulamaları', 'Bina Yönetimi', 'Sosyal Medya'].map((tag, index) => (
+                {['Web Uygulama Geliştirme','API ve Servis Geliştirme' , 'Veri Tabanı Çözümleri' ,'Kurumsal Projeler','Takım ve Versiyon Kontrolü','CRM (Müşteri İlişkileri Yönetim Sistemi)','Yapay Zeka Proje Geliştirmeleri'].map((tag, index) => (
                   <span 
                     key={tag} 
                     className={`px-4 py-2 bg-blue-600/20 rounded-full text-sm border border-blue-500/30 transition-all duration-500`}
@@ -437,9 +342,9 @@ const Portfolio = () => {
               }`}
               id="about-image"
             >
-              <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
+              <div className="w-80 h-110 mx-auto bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
                 <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-                  <img src="/avatar-kisisel.png" alt="" />
+                  <img src="mehmetkarpuz.png" alt="" />
                 </div>
               </div>
             </div>
@@ -593,7 +498,7 @@ const Portfolio = () => {
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-full object-contain p-4"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6">
@@ -627,81 +532,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section id="team" className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 
-            data-animate="fade-up"
-            className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent transition-all duration-1000 ${
-              visibleElements.has('team-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-            id="team-title"
-          >
-            Takım Arkadaşlarım
-          </h2>
-          <div className="flex justify-center">
-            <div className="grid md:grid-cols-2 gap-8 max-w-2xl">
-              {teamMembers.map((member, index) => (
-                <div 
-                  key={index}
-                  data-animate="fade-up"
-                  className={`bg-slate-800/50 rounded-xl p-6 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 hover:transform hover:scale-105 text-center ${
-                    visibleElements.has(`team-${index}`) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                  }`}
-                  id={`team-${index}`}
-                  style={{ transitionDelay: `${index * 150}ms` }}
-                >
-                  <div 
-                    className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden"
-                  >
-                    {member.isImageUrl ? (
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-full h-full object-cover rounded-full"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
-                          if (nextElement) {
-                            nextElement.style.display = 'flex';
-                          }
-                        }}
-                      />
-                    ) : null}
-                    <div 
-                      className={`w-full h-full rounded-full flex items-center justify-center ${member.isImageUrl ? 'hidden' : 'flex'}`}
-                      style={member.isImageUrl ? {} : { background: member.image }}
-                    >
-                      <Users className="w-8 h-8 text-white/80" />
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                  <p className="text-blue-400 font-semibold mb-4">{member.role}</p>
-                  <div className="flex flex-wrap gap-1 justify-center mb-4">
-                    {member.skills.map((skill) => (
-                      <span key={skill} className="px-2 py-1 bg-blue-600/20 rounded text-xs border border-blue-500/30">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex justify-center space-x-3">
-                    <a href={member.linkedin} className="p-2 bg-blue-600/20 rounded-full hover:bg-blue-600/30 transition-colors">
-                      <Linkedin className="w-4 h-4" />
-                    </a>
-                    <a href={member.github} className="p-2 bg-blue-600/20 rounded-full hover:bg-blue-600/30 transition-colors">
-                      <Github className="w-4 h-4" />
-                    </a>
-                    <a href={member.portfolio} className="p-2 bg-purple-600/20 rounded-full hover:bg-purple-600/30 transition-colors">
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-slate-800/50">
         <div className="max-w-4xl mx-auto text-center">
@@ -725,9 +556,9 @@ const Portfolio = () => {
           </p>
           <div className="flex justify-center space-x-8 mb-12">
             {[
-              { icon: <Github className="w-8 h-8" />, label: 'GitHub', href: 'https://github.com/kaya2m' },
-              { icon: <Linkedin className="w-8 h-8" />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/muhammet-kaya-60b36b213/' },
-              { icon: <Mail className="w-8 h-8" />, label: 'E-posta', href: 'mailto:mkaya349@hotmail.com' }
+              { icon: <Github className="w-8 h-8" />, label: 'GitHub', href: 'https://github.com/MehmetKarpuzx' },
+              { icon: <Linkedin className="w-8 h-8" />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mehmet-karpuz/' },
+              { icon: <Mail className="w-8 h-8" />, label: 'E-posta', href: 'mailto:mehmetkapruz.business@gmail.com' }
             ].map((social, index) => (
               <a 
                 key={social.label}
@@ -753,7 +584,7 @@ const Portfolio = () => {
             }`}
             id="contact-button"
             style={{ transitionDelay: '700ms' }}
-            onClick={() => window.open('mailto:mkaya349@hotmail.com', '_blank')}
+            onClick={() => window.open('mailto:mehmetkarpuz.businnes@gmail.com', '_blank')}
           >
             Benimle İletişime Geç
           </button>
@@ -764,7 +595,7 @@ const Portfolio = () => {
       <footer className="py-8 px-4 border-t border-slate-800">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center text-gray-400">
-            <p className="mb-4 md:mb-0">© 2025 Muhammet Kaya. Tüm hakları saklıdır.</p>
+            <p className="mb-4 md:mb-0">© 2025 Mehmet Karpuz. Tüm hakları saklıdır.</p>
           </div>
         </div>
       </footer>
