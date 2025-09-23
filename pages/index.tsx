@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { Github, Linkedin, Mail, ExternalLink, Menu, X, MapPin, Calendar } from 'lucide-react';
+import { Github, Linkedin, Mail, Menu, X, MapPin, Calendar } from 'lucide-react';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
