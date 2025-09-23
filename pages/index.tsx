@@ -1,23 +1,22 @@
 'use client'
+
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Menu, X, Users, MapPin, Calendar } from 'lucide-react';
+import Image from 'next/image';
+import { Github, Linkedin, Mail, ExternalLink, Menu, X, MapPin, Calendar } from 'lucide-react';
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [visibleElements, setVisibleElements] = useState(new Set());
+  const [visibleElements, setVisibleElements] = useState(new Set<string>());
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
- 
-
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (entry.target.id) {
-              setVisibleElements(prev => new Set([...prev, entry.target.id]));
-            }
+          if (entry.isIntersecting && (entry.target as HTMLElement).id) {
+            const id = (entry.target as HTMLElement).id;
+            setVisibleElements((prev) => new Set([...Array.from(prev), id]));
           }
         });
       },
@@ -25,22 +24,22 @@ const Portfolio = () => {
     );
 
     const elements = document.querySelectorAll('[data-animate]');
-    elements.forEach(el => observerRef.current?.observe(el));
+    elements.forEach((el) => observerRef.current?.observe(el));
 
     return () => observerRef.current?.disconnect();
   }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects','contact'];
+      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
-      sections.forEach(section => {
+      sections.forEach((section) => {
         const element = document.getElementById(section);
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetBottom = offsetTop + element.offsetHeight;
-          
+
           if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
             setActiveSection(section);
           }
@@ -57,122 +56,80 @@ const Portfolio = () => {
     setIsMenuOpen(false);
   };
 
- 
+  // NOTE: remote ikonlar için next.config.js -> images.domains: ['cdn.jsdelivr.net']
   const skills = [
-    { name: 'C#', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" className="w-6 h-6" />, level: 95 },
-    { name: 'ASP.NET', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="ASP.NET" className="w-6 h-6" />, level: 95 },
-    { name: 'SQL Server', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server" className="w-6 h-6" />, level: 88 },
-    { name: 'JavaScript', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-6 h-6" />, level: 85 },
-    { name: 'Node.js', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-6 h-6" />, level: 82 },
+    { name: 'C#', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg', level: 95 },
+    { name: 'ASP.NET', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg', level: 95 },
+    { name: 'SQL Server', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg', level: 88 },
+    { name: 'JavaScript', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', level: 85 },
+    { name: 'Node.js', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', level: 82 },
   ];
+
   const experiences = [
-      {
-      company: "Şahinbey Belediyesi",
-      logo: "/sahinbey-logo.jpg",
-      position: "Yazılım Geliştiricisi",
-      period: "Eylül 2025 - Günümüz",
-      location: "Gaziantep, Türkiye",
+    {
+      company: 'Şahinbey Belediyesi',
+      logo: '/sahinbey-logo.jpg',
+      position: 'Yazılım Geliştiricisi',
+      period: 'Eylül 2025 - Günümüz',
+      location: 'Gaziantep, Türkiye',
       description:
-        "Belediyeye ait  uygulamaların geliştirilmesinden ve bakımından sorumluyum. Rolüm sistem mimarisi tasarımı, arka uç geliştirme ve web uygulaması geliştirme içeriyor. Bilgi ve deneyimimden yararlanarak, uygulamalar sıfırdan oluşturuyorum ve bunları son kullanıcılara teslim ediyorum.",
-      technologies: [
-        ".NET",
-        "ASP.NET Web API",
-        "React",
-        "Flutter",
-        "Tailwind CSS- Bootstrap",
-        "MSSQL"
-      
-      ],
+        'Belediyeye ait uygulamaların geliştirilmesi ve bakımından sorumluyum. Rolüm sistem mimarisi, arka uç geliştirme ve web uygulaması geliştirmeyi içeriyor. Sıfırdan uygulamalar oluşturup son kullanıcılara teslim ediyorum.',
+      technologies: ['.NET', 'ASP.NET Web API', 'React', 'Flutter', 'Tailwind CSS- Bootstrap', 'MSSQL'],
       achievements: [
-        "Kurumsal projelerde yazılım mimarisi ve geliştirme süreçlerinde aktif rol aldım.",
-     
-        
-        "Yüksek performanslı ve ölçeklenebilir uygulamalar geliştirdim.",
-        "Çok kullanıcılı mimariler tasarladım."
-      ]
+        'Kurumsal projelerde yazılım mimarisi ve geliştirme süreçlerinde aktif rol aldım.',
+        'Yüksek performanslı ve ölçeklenebilir uygulamalar geliştirdim.',
+        'Çok kullanıcılı mimariler tasarladım.',
+      ],
     },
     {
-      company: "SANKO Holding",
-      logo: "sanko-logo.png",
-      position: "Yazılım Geliştirme Stajyeri",
-      period: "Şubat 2025 - Haziran 2025",
-      location: "Gaziantep, Türkiye",
+      company: 'SANKO Holding',
+      logo: '/sanko-logo.png',
+      position: 'Yazılım Geliştirme Stajyeri',
+      period: 'Şubat 2025 - Haziran 2025',
+      location: 'Gaziantep, Türkiye',
       description:
-      "Stajım sırasında .NET Core teknolojileriyle web tabanlı uygulama geliştirme süreçlerine katkıda bulundum. Katıldığım projelerde arka uç geliştirme, API entegrasyonu ve veritabanı operasyonları üzerinde çalıştım. MS SQL Server kullanarak veri modelleme, sorgu optimizasyonu ve CRUD operasyonları gerçekleştirdim. Ayrıca, temel seviye Entity Framework Core kullanarak veri erişim katmanları oluşturma konusunda deneyim kazandım. Ekip iş birliklerinde aktif olarak yer aldım ve çevik metodolojiler kullanarak proje geliştirme süreçlerine katkıda bulundum.",
-      technologies: [
-        "ASP.NET Web API (8.0)",
-        
-        "MSSQL",
-        
-        "Blazor",
-      
-        "Bootstrap",
-       
-        "Git",
-        "GitHub"
-        
-      ],
-      achievements: [
-        "Kurumsal süreçlerde uçtan uca dijitalleşme ve otomasyon sağladım.",
-        "Modern teknolojiler kullanarak ekibe katkı sağladım."
-      ]
+        'Stajda .NET Core ile web tabanlı geliştirmelere katkı sağladım. API entegrasyonu ve veritabanı operasyonları yaptım. EF Core ve SQL Server ile veri modeli ve CRUD süreçlerinde çalıştım.',
+      technologies: ['ASP.NET Web API (8.0)', 'MSSQL', 'Blazor', 'Bootstrap', 'Git', 'GitHub'],
+      achievements: ['Kurumsal süreçlerde uçtan uca dijitalleşme ve otomasyon sağladım.', 'Modern teknolojilerle ekibe katkı sağladım.'],
     },
     {
-      company: "HA5 Arge İnovasyon ve Tasarım San. Ltd. Şti.",
-      position: "Yönetim Bilişim Sistemleri Uzmanı",
-      period: "Haziran 2023 - Ekim 2023",
-      location: "Gaziantep, Türkiye",
+      company: 'HA5 Arge İnovasyon ve Tasarım San. Ltd. Şti.',
+      
+      position: 'Yönetim Bilişim Sistemleri Uzmanı',
+      period: 'Haziran 2023 - Ekim 2023',
+      location: 'Gaziantep, Türkiye',
       description:
-      "Pozisyonum kapsamında, kurum içi süreçleri dijitalleştirmeyi amaçlayan masaüstü uygulamaları geliştirdim. Özellikle, C# ve .NET Framework kullanarak Windows Forms tabanlı bir uygulama tasarlayıp geliştirdim. Uygulama, kullanıcı yönetimi, veri giriş/çıkış işlemleri ve raporlama gibi temel işlevleri içeriyordu. SQL Server ile entegre olan sistem, veritabanı işlemlerinin güvenli ve verimli bir şekilde yürütülmesini sağladı. Proje yaşam döngüsü boyunca analiz, geliştirme, test ve bakım aşamalarında aktif olarak yer aldım.",
-      technologies: [
-        "ASP.NET MVC",
-        "MSSQL",
-        
-        "Entity Framework",
-        
-        "JQuery",
-        "Ajax"
-       
-       
-        
-      ],
-      achievements: [
-        "Depo ve Stok yönetimi için sıfırdan uygulama geliştirdim"
-       
-      ]
+        'Kurum içi süreçleri dijitalleştirmeyi amaçlayan masaüstü uygulamaları geliştirdim. C#/.NET Framework ve SQL Server ile kullanıcı yönetimi, veri operasyonları ve raporlama içeren bir uygulama geliştirdim.',
+      technologies: ['ASP.NET MVC', 'MSSQL', 'Entity Framework', 'JQuery', 'Ajax'],
+      achievements: ['Depo ve stok yönetimi için sıfırdan uygulama geliştirdim'],
     },
-    
-    
   ];
 
   const projects = [
     {
-      title: "Enerji Veri Toplama",
-      description: "Bu projede, staj dönemimde Yazılım Uzmanı Tufan bey ile enerji tüketim verilerinin toplanması, işlenmesi ve görselleştirilmesi amacıyla modüler bir yazılım geliştirdik. Proje kapsamında: C# ve .NET Core kullanarak çok katmanlı bir mimari (WebUI, Repository, Entities) oluşturuldu. Entity Framework Core ile SQL Server üzerinde veritabanı işlemleri gerçekleştirildi. OleDbReader bileşeni aracılığıyla farklı veri kaynaklarından veri alımı sağlandı. Kullanıcı arayüzü için ve web arayüzü için ASP.NET Core MVC teknolojileri entegre edildi. Proje, test ve bakım süreçlerini kapsayacak şekilde SuperFilm.Enerji.TestClient modülü ile desteklendi. Bu proje sayesinde, kurumsal düzeyde veri işleme ve enerji yönetimi çözümleri geliştirme konusunda deneyim kazandım.",
-      tech: [".NET Core","Entity Framework","MS SQL"],
-      
-      github: "https://github.com/TufanYilmaz/EnerjiVeritoplamaTanimlama",
-      image: "enerji.jpeg",
-      isImageUrl: true
+      title: 'Enerji Veri Toplama',
+      description:
+        'Staj döneminde enerji tüketim verilerinin toplanması, işlenmesi ve görselleştirilmesi için modüler yazılım geliştirdim. .NET Core, EF Core ve SQL Server ile veri işlemleri; ASP.NET Core MVC ile arayüz.',
+      tech: ['.NET Core', 'Entity Framework', 'MS SQL'],
+      github: 'https://github.com/TufanYilmaz/EnerjiVeritoplamaTanimlama',
+      image: '/enerji.jpeg',
     },
     {
-      title: ".NET Core AI",
-      description:".NET Core ekosisteminde kişisel öğrenme ve Ar-Ge amaçlı geliştirdiğim bu projede, tek bir çözüm içinde organize ettiğim 20’den fazla katmanlı projede OpenAI (Chat, Whisper, DALL·E), Google Cloud Vision & Tesseract OCR, RapidAPI gibi AI servislerini entegre ederek haber özetleme, PDF analizi, duygu analizi, yemek tarifi önerisi gibi senaryoları demo’ladım; C# ve ASP.NET Core MVC ile RESTful servisler, EF Core & SQL Server ile veri erişimi, HTML/CSS/JS ile arayüzler, async/await ve DI ile API tüketimi, JSON veri serileştirme gibi teknolojilerle derinlemesine deneyim kazandım.",
-      tech: ["ASP.NET MVC", "MSSQL / T-SQL", "Bootstrap", "Entity Framework"],
-      
-      github: "https://github.com/MehmetKarpuzx/NetCoreAI",
-      image:"netcoreai.jpeg",
-      isImageUrl: false
+      title: '.NET Core AI',
+      description:
+        'Tek bir çözümde 20+ katmanlı projeyle OpenAI (Chat, Whisper, DALL·E), Google Vision & Tesseract OCR, RapidAPI entegrasyonları; ASP.NET MVC, EF Core & SQL Server ile çeşitli demolar.',
+      tech: ['ASP.NET MVC', 'MSSQL / T-SQL', 'Bootstrap', 'Entity Framework'],
+      github: 'https://github.com/MehmetKarpuzx/NetCoreAI',
+      image: '/netcoreai.jpeg',
     },
-  {
-      title: "SANShine Şirket Yönetim Portalı",
-      description:"Kurumsal iş süreçlerini dijitalleştiren ve merkezi yönetimi sağlayan tam kapsamlı bir web portalı geliştirdim; C# ile ASP.NET MVC tabanlı çok katmanlı (UI, Business, Data) mimari kurarak EF Core/ADO.NET ile optimize edilmiş SQL Server veri modelleri oluşturdum, RBAC tabanlı rol yetkilendirme mekanizmalarıyla kullanıcı erişimlerini yönettim, HTML/CSS/Bootstrap ile responsive arayüzler tasarlayıp jQuery & AJAX ile dinamik içerik ve form validasyonu sağlayarak masaüstü ve mobil cihazlarda tutarlı kullanıcı deneyimi sundum.",
-      tech: [ ".NET Core", "MS SQL","Entity Framework Core","Çok Katmanlı Mimari"],
-      demo: "",
-      github: "https://github.com/MehmetKarpuzx/SANShineCompanyManagamentPortal",
-      image: "sanshine.jpeg"
-    }
-  
+    {
+      title: 'SANShine Şirket Yönetim Portalı',
+      description:
+        'Kurumsal süreçleri dijitalleştiren portal: ASP.NET MVC çok katmanlı mimari, EF Core/ADO.NET veri erişimi, RBAC yetkilendirme, responsive UI, jQuery & AJAX ile dinamik içerik.',
+      tech: ['.NET Core', 'MS SQL', 'Entity Framework Core', 'Çok Katmanlı Mimari'],
+      github: 'https://github.com/MehmetKarpuzx/SANShineCompanyManagamentPortal',
+      image: '/sanshine.jpeg',
+    },
   ];
 
   return (
@@ -181,20 +138,19 @@ const Portfolio = () => {
       <nav className="fixed top-0 w-full bg-slate-900/95 backdrop-blur-sm z-50 border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-        <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-          <img src="/mehmetkarpuz-kisisel-logo.png" alt="" className="h-10 w-auto" />
-        </div>
-            
+            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              <Image src="/mehmetkarpuz-kisisel-logo.png" alt="Mehmet Karpuz" width={160} height={40} className="h-10 w-auto" />
+            </div>
+
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {[
-                {id: 'home', label: 'Ana Sayfa'},
-                {id: 'about', label: 'Hakkımda'},
-                {id: 'skills', label: 'Yetenekler'},
-                {id: 'experience', label: 'Deneyim'},
-                {id: 'projects', label: 'Projeler'},
-                
-                {id: 'contact', label: 'İletişim'}
+                { id: 'home', label: 'Ana Sayfa' },
+                { id: 'about', label: 'Hakkımda' },
+                { id: 'skills', label: 'Yetenekler' },
+                { id: 'experience', label: 'Deneyim' },
+                { id: 'projects', label: 'Projeler' },
+                { id: 'contact', label: 'İletişim' },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -209,10 +165,7 @@ const Portfolio = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
+            <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -223,13 +176,12 @@ const Portfolio = () => {
           <div className="md:hidden bg-slate-800 border-t border-slate-700">
             <div className="px-4 py-2 space-y-2">
               {[
-                {id: 'home', label: 'Ana Sayfa'},
-                {id: 'about', label: 'Hakkımda'},
-                {id: 'skills', label: 'Yetenekler'},
-                {id: 'experience', label: 'Deneyim'},
-                {id: 'projects', label: 'Projeler'},
-                
-                {id: 'contact', label: 'İletişim'}
+                { id: 'home', label: 'Ana Sayfa' },
+                { id: 'about', label: 'Hakkımda' },
+                { id: 'skills', label: 'Yetenekler' },
+                { id: 'experience', label: 'Deneyim' },
+                { id: 'projects', label: 'Projeler' },
+                { id: 'contact', label: 'İletişim' },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -244,22 +196,22 @@ const Portfolio = () => {
         )}
       </nav>
 
-   {/* Hero Section */}
+      {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-24">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
-        
+
         <div className="z-10 px-4 w-full">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
-            {/* Yazılar */}
+            {/* Texts */}
             <div className="md:w-2/3 w-full text-center md:text-left md:pr-12 mt-8 md:mt-0">
               <h1 className="text-4xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
-                Mehmet Karpuz   <span className="text-purple-400">Yazılım Geliştiricisi</span>
+                Mehmet Karpuz <span className="text-purple-400">Yazılım Geliştiricisi</span>
               </h1>
-             
+
               <div className="flex justify-center md:justify-start space-x-6 mb-12">
                 <a href="https://github.com/MehmetKarpuzx" className="p-3 bg-blue-600/20 rounded-full hover:bg-blue-600/30 transition-all duration-300 hover:scale-110">
                   <Github className="w-6 h-6" />
@@ -272,32 +224,30 @@ const Portfolio = () => {
                 </a>
               </div>
             </div>
-            {/* Profil Fotoğrafı */}
+
+            {/* Profile Video */}
             <div className="md:w-1/3 w-full flex justify-center md:justify-end mt-8 md:mt-0">
               <div className="w-64 h-64 md:w-100 md:h-100 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1">
                 <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center overflow-hidden">
-                  <video src="/yazılım.mp4" autoPlay muted loop playsInline></video>
-                  
+                  <video src="/yazilim.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+
         {/* Mouse Animation */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <div 
-            className="w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center cursor-pointer hover:border-blue-300 transition-colors"
-            onClick={() => scrollToSection('about')}
-          >
+          <div className="w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center cursor-pointer hover:border-blue-300 transition-colors" onClick={() => scrollToSection('about')}>
             <div className="w-1 h-3 bg-blue-400 rounded-full mt-2 animate-bounce"></div>
           </div>
         </div>
       </section>
+
       {/* About Section */}
       <section id="about" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 
+          <h2
             data-animate="fade-up"
             className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent transition-all duration-1000 ${
               visibleElements.has('about-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -307,7 +257,7 @@ const Portfolio = () => {
             Hakkımda
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div 
+            <div
               data-animate="fade-right"
               className={`space-y-6 transition-all duration-1000 delay-300 ${
                 visibleElements.has('about-content') ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
@@ -315,36 +265,35 @@ const Portfolio = () => {
               id="about-content"
             >
               <p className="text-lg text-gray-300 leading-relaxed">
-                Ben Mehmet, Yazılım Geliştiricisiyim. İskenderun Teknik Üniversitesi, Yönetim Bilişim Sistemleri bölümünden 3.48/4 ortalamayla mezun oldum. Yaklaşık 1 yıldır yazılım ekosisteminin bir parçasıyım ve sürekli öğrenme ve gelişme tutkusuyla kendimi geliştiriyorum. Hem kendimi hem de üstlendiğim görevleri en iyi şekilde geliştirerek, hem kendime hem de projelerimle şirkete değer katmaya devam ediyorum.
+                Ben Mehmet, Yazılım Geliştiricisiyim. İskenderun Teknik Üniversitesi, Yönetim Bilişim Sistemleri bölümünden 3.48/4
+                ortalamayla mezun oldum. Yaklaşık 1 yıldır yazılım ekosisteminin bir parçasıyım ve sürekli öğrenme tutkusuyla
+                kendimi geliştiriyorum. Projelerimle şirkete değer katmaya devam ediyorum.
               </p>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Microsoft teknolojileri (.NET, SQL Server) 
-                ile ölçeklenebilir ve performanslı web uygulamaları tasarlayıp geliştiriyorum.
-              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">Microsoft teknolojileri (.NET, SQL Server) ile ölçeklenebilir ve performanslı web uygulamaları tasarlayıp geliştiriyorum.</p>
               <div className="flex flex-wrap gap-3">
-                {['Web Uygulama Geliştirme','API ve Servis Geliştirme' , 'Veri Tabanı Çözümleri' ,'Kurumsal Projeler','Takım ve Versiyon Kontrolü','CRM (Müşteri İlişkileri Yönetim Sistemi)','Yapay Zeka Proje Geliştirmeleri'].map((tag, index) => (
-                  <span 
-                    key={tag} 
-                    className={`px-4 py-2 bg-blue-600/20 rounded-full text-sm border border-blue-500/30 transition-all duration-500`}
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
+                {[
+                  'Web Uygulama Geliştirme',
+                  'API ve Servis Geliştirme',
+                  'Veri Tabanı Çözümleri',
+                  'Kurumsal Projeler',
+                  'Takım ve Versiyon Kontrolü',
+                  'CRM (Müşteri İlişkileri Yönetim Sistemi)',
+                  'Yapay Zeka Proje Geliştirmeleri',
+                ].map((tag, index) => (
+                  <span key={tag} className="px-4 py-2 bg-blue-600/20 rounded-full text-sm border border-blue-500/30 transition-all duration-500" style={{ animationDelay: `${index * 100}ms` }}>
                     {tag}
                   </span>
                 ))}
               </div>
-              
-            
             </div>
-            <div 
+            <div
               data-animate="fade-left"
-              className={`relative transition-all duration-1000 delay-500 ${
-                visibleElements.has('about-image') ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-              }`}
+              className={`relative transition-all duration-1000 delay-500 ${visibleElements.has('about-image') ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
               id="about-image"
             >
               <div className="w-80 h-110 mx-auto bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10">
                 <div className="w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-                  <img src="mehmetkarpuz.png" alt="" />
+                  <Image src="/mehmetkarpuz.png" alt="Mehmet Karpuz" width={400} height={400} />
                 </div>
               </div>
             </div>
@@ -353,9 +302,9 @@ const Portfolio = () => {
       </section>
 
       {/* Skills Section */}
-   <section id="skills" className="py-20 px-4 bg-slate-800/50">
+      <section id="skills" className="py-20 px-4 bg-slate-800/50">
         <div className="max-w-6xl mx-auto">
-          <h2 
+          <h2
             data-animate="fade-up"
             className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent transition-all duration-1000 ${
               visibleElements.has('skills-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -366,8 +315,8 @@ const Portfolio = () => {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skill, index) => (
-              <div 
-                key={skill.name} 
+              <div
+                key={skill.name}
                 data-animate="fade-up"
                 className={`bg-slate-800/50 p-6 rounded-xl border border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 hover:transform hover:scale-105 ${
                   visibleElements.has(`skill-${index}`) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -377,7 +326,7 @@ const Portfolio = () => {
               >
                 <div className="flex items-center mb-4">
                   <div className="p-2 bg-blue-600/20 rounded-lg mr-3">
-                    {skill.icon}
+                    <Image src={skill.iconUrl} alt={skill.name} width={24} height={24} />
                   </div>
                   <h3 className="text-xl font-semibold">{skill.name}</h3>
                 </div>
@@ -390,7 +339,7 @@ const Portfolio = () => {
       {/* Experience Section */}
       <section id="experience" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 
+          <h2
             data-animate="fade-up"
             className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent transition-all duration-1000 ${
               visibleElements.has('experience-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -401,7 +350,7 @@ const Portfolio = () => {
           </h2>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
-              <div 
+              <div
                 key={index}
                 data-animate="fade-up"
                 className={`bg-slate-800/50 rounded-xl p-8 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 ${
@@ -414,11 +363,12 @@ const Portfolio = () => {
                   <div className="md:col-span-1 flex flex-col items-start">
                     <div className="flex items-center mb-2">
                       {exp.logo && (
-                        <img
-                          src={exp.logo}
+                        <Image
+                          src={exp.logo.startsWith('/') ? exp.logo : `/${exp.logo}`}
                           alt={`${exp.company} logo`}
-                          className="w-10 h-10 object-contain rounded bg-white p-1 mr-3 border border-slate-700"
-                          style={{ background: "#fff" }}
+                          width={40}
+                          height={40}
+                          className="object-contain rounded bg-white p-1 mr-3 border border-slate-700"
                         />
                       )}
                       <div>
@@ -439,7 +389,7 @@ const Portfolio = () => {
                   </div>
                   <div className="md:col-span-2">
                     <p className="text-gray-300 mb-4">{exp.description}</p>
-                    
+
                     <div className="mb-4">
                       <h4 className="text-white font-semibold mb-2">Kullanılan Teknolojiler:</h4>
                       <div className="flex flex-wrap gap-2">
@@ -450,7 +400,7 @@ const Portfolio = () => {
                         ))}
                       </div>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-white font-semibold mb-2">Başarılar:</h4>
                       <ul className="space-y-1">
@@ -470,11 +420,10 @@ const Portfolio = () => {
         </div>
       </section>
 
-     
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4 bg-slate-800/50">
         <div className="max-w-7xl mx-auto">
-          <h2 
+          <h2
             data-animate="fade-up"
             className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent transition-all duration-1000 ${
               visibleElements.has('projects-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -485,8 +434,8 @@ const Portfolio = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 data-animate="fade-up"
                 className={`bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 hover:transform hover:scale-105 ${
                   visibleElements.has(`project-${index}`) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -494,11 +443,14 @@ const Portfolio = () => {
                 id={`project-${index}`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="h-48 flex items-center justify-center relative overflow-hidden bg-white">
-                  <img 
-                    src={project.image} 
+                <div className="h-48 relative overflow-hidden bg-white">
+                  <Image
+                    src={project.image.startsWith('/') ? project.image : `/${project.image}`}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    priority={index === 0}
                   />
                 </div>
                 <div className="p-6">
@@ -518,12 +470,13 @@ const Portfolio = () => {
                         Kod
                       </a>
                     )}
-                    {project.demo && project.demo !== "#" && (
+                    {/* Demo linki varsa göster */}
+                    {/* {project.demo && project.demo !== '#' && (
                       <a href={project.demo} className="flex items-center text-purple-400 hover:text-purple-300 transition-colors">
                         <ExternalLink className="w-4 h-4 mr-2" />
                         Demo
                       </a>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>
@@ -532,11 +485,10 @@ const Portfolio = () => {
         </div>
       </section>
 
-      
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-slate-800/50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 
+          <h2
             data-animate="fade-up"
             className={`text-4xl font-bold mb-8 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent transition-all duration-1000 ${
               visibleElements.has('contact-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -545,7 +497,7 @@ const Portfolio = () => {
           >
             İletişim
           </h2>
-          <p 
+          <p
             data-animate="fade-up"
             className={`text-xl text-gray-300 mb-12 transition-all duration-1000 delay-200 ${
               visibleElements.has('contact-subtitle') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -558,11 +510,11 @@ const Portfolio = () => {
             {[
               { icon: <Github className="w-8 h-8" />, label: 'GitHub', href: 'https://github.com/MehmetKarpuzx' },
               { icon: <Linkedin className="w-8 h-8" />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mehmet-karpuz/' },
-              { icon: <Mail className="w-8 h-8" />, label: 'E-posta', href: 'mailto:mehmetkapruz.business@gmail.com' }
+              { icon: <Mail className="w-8 h-8" />, label: 'E-posta', href: 'mailto:mehmetkarpuz.business@gmail.com' },
             ].map((social, index) => (
-              <a 
+              <a
                 key={social.label}
-                href={social.href} 
+                href={social.href}
                 data-animate="fade-up"
                 className={`flex flex-col items-center group transition-all duration-1000 ${
                   visibleElements.has(`contact-${index}`) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -577,7 +529,7 @@ const Portfolio = () => {
               </a>
             ))}
           </div>
-          <button 
+          <button
             data-animate="fade-up"
             className={`px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-500 transform hover:scale-105 shadow-lg hover:shadow-xl ${
               visibleElements.has('contact-button') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
