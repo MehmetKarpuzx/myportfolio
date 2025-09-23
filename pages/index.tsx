@@ -584,7 +584,7 @@ const Portfolio = () => {
             }`}
             id="contact-button"
             style={{ transitionDelay: '700ms' }}
-            onClick={() => window.open('mailto:mehmetkarpuz.businnes@gmail.com', '_blank')}
+            onClick={() => window.open('mailto:mehmetkarpuz.business@gmail.com', '_blank')}
           >
             Benimle İletişime Geç
           </button>
