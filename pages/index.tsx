@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Github, Linkedin, Mail, Menu, X, MapPin, Calendar } from 'lucide-react';
+import Head from "next/head";
+import Script from "next/script";
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,6 +48,7 @@ const Portfolio = () => {
         }
       });
     };
+    
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -551,7 +554,11 @@ const Portfolio = () => {
           </div>
         </div>
       </footer>
+       {/* Chatbot – sadece bu sayfada çalışsın (div kapanmadan ÖNCE!) */}
+      <Script src="/js/chatbot-config.js" strategy="afterInteractive" />
+      <Script src="/js/chatbot-widget.js" strategy="afterInteractive" />
     </div>
+    
   );
 };
 
