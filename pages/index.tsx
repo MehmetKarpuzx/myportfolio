@@ -3,9 +3,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Github, Linkedin, Mail, Menu, X, MapPin, Calendar } from 'lucide-react';
-import Head from "next/head";
 import Script from "next/script";
-
+//--------------------------------------------------------------------------------
+// Ana Bileşen
+//-------------------------------------------------------------------------------
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
