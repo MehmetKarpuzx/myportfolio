@@ -65,10 +65,19 @@ const Portfolio = () => {
   // NOTE: remote ikonlar için next.config.js -> images.domains: ['cdn.jsdelivr.net']
   const skills = [
     { name: 'C#', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg', level: 95 },
+    { name: '.NET Core', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg', level: 90 },
     { name: 'ASP.NET', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg', level: 95 },
     { name: 'SQL Server', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg', level: 88 },
     { name: 'JavaScript', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', level: 85 },
     { name: 'Node.js', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', level: 82 },
+    { name: 'React', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', level: 80 },
+    { name: 'HTML5', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', level: 90 },
+    { name: 'CSS3', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', level: 85 },
+    { name: 'Bootstrap', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg', level: 80 },
+    { name: 'GitHub', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', level: 85 },
+    { name: 'Entity Framework', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg', level: 85 },
+    
+
   ];
 
   const experiences = [
@@ -80,7 +89,7 @@ const Portfolio = () => {
       location: 'Gaziantep, Türkiye',
       description:
         'Belediyeye ait uygulamaların geliştirilmesi ve bakımından sorumluyum. Rolüm sistem mimarisi, arka uç geliştirme ve web uygulaması geliştirmeyi içeriyor. Sıfırdan uygulamalar oluşturup son kullanıcılara teslim ediyorum.',
-      technologies: ['.NET', 'ASP.NET Web API', 'React', 'Flutter', 'Tailwind CSS- Bootstrap', 'MSSQL'],
+      technologies: ['.NET', 'ASP.NET Web API', 'React', 'Tailwind CSS- Bootstrap', 'MSSQL'],
       achievements: [
         'Kurumsal projelerde yazılım mimarisi ve geliştirme süreçlerinde aktif rol aldım.',
         'Yüksek performanslı ve ölçeklenebilir uygulamalar geliştirdim.',
