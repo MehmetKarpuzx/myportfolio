@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Github, Linkedin, Mail, Menu, X, MapPin, Calendar } from 'lucide-react';
 import Script from "next/script";
+import Testimonials, { type Testimonial } from "@/components/Testimonials";
+
 //--------------------------------------------------------------------------------
 // Ana Bileşen
 //-------------------------------------------------------------------------------
@@ -34,7 +36,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'testimonials', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section) => {
@@ -136,6 +138,65 @@ const Portfolio = () => {
     },
   ];
 
+  const testimonials: Testimonial[] = [
+  {
+    name: "Tufan Yılmaz",
+    role: "Bilgisayar Mühendisi",
+    company: "Sanko Holding",
+    quote: "Mehmet ile staj sürecinde birlikte çalıştık. .NET/ASP.NET tarafında yeni konuları çok hızlı kavrayıp kısa sürede üretken hale geldi. Kod kalitesine özen gösterir, PR’larda yapıcı geri bildirimleri dikkate alır ve görevlerini zamanında teslim eder. Problem çözme yaklaşımı, öğrenme iştahı ve takım içi iletişimiyle güven veren bir çalışma arkadaşıdır.",
+    avatarSrc: "/people/tufanyilmaz.jpg",
+    rating: 5,
+    link: "https://linkedin.com/in/yilmaztufan"
+  },
+  {
+    name: "Mahmut Kantar",
+    role: "SAP MII MES Developer Manager",
+    company: "Sanko Holding",
+    quote: "Ekibimize kısa sürede değer kattı. EF Core ve SQL tarafında dikkatli, geri bildirimlere açık ve iletişimi güçlü. Proaktif tavrıyla işleri ileri taşıyan güvenilir bir geliştirici.",
+    avatarSrc: "/people/mahmutkantar.jpg",
+    rating: 5,
+    link: "https://linkedin.com/in/mahmutkantar"
+  },
+  {
+    name: "Recep Doğan",
+    role: "Dart & Flutter Mobil Geliştirici",
+    company: "Şahinbey Belediyesi",
+    quote: "Mehmet, çalışkan, dürüst ve sorumluluk sahibi bir ekip üyesi. Şeffaf iletişim kurar ve zorluklar karşısında pes etmez. Geri bildirimlere alçakgönüllü yaklaşır,iş ahlakıyla örnek, öğrenme motivasyonu yüksek, ekip arkadaşlarına destek olmaktan çekinmeyen bir yazılım geliştiricisi. ",
+    avatarSrc: "/people/recepdogan.jpg",
+    rating: 5,
+    link: "https://linkedin.com/in/recep-doğan-ab931322b"
+  },
+   {
+    name: "Volkan Kamalak",
+    role: "Bilgisayar Mühendisi",
+    company: "Sanko Holding",
+    quote: "Üretken,çalışkan ve azimli bir genç. Yeni teknolojileri öğrenmeye açık ve hevesli. Takım çalışmasına yatkın ve iletişimi kuvvetli. Kendisini geliştirmeye devam ederse çok iyi yerlere geleceğine inanıyorum.",
+    avatarSrc: "/people/volkankamalak.jpg",
+    rating: 5,
+    link: "https://linkedin.com/in/volkan-kamalak-8898b0b5"
+  },
+   {
+    name: "Mert İyibiçer",
+    role: "Bilgisayar Mühendisi",
+    company: "",
+    quote: "Mehmet ile birlikte staj yaparken en çok disiplinine ve çözüm odaklı yaklaşımına hayran kaldım. Karmaşık görevleri parçalara ayırıp hızla hayata geçiriyor, PR’larda net ve yapıcı geri bildirim veriyor. Güvenilir, işbirliğine açık ve ekibe gerçek değer katan bir takım arkadaşı.",
+    avatarSrc: "/people/mertiyibicer.jpg",
+    rating: 5,
+    link: "https://linkedin.com/in/mert-iyibiçer-5331aa256"
+  },
+   {
+    name: "Kerem Emir Ercan",
+    role: "Yazılım Mühendisi",
+    company: "",
+    quote: "Mehmet ile aynı ekipte staj yapmak büyük şanstı. Zor konuları hızla kavrayıp temiz, sürdürülebilir çözümler üretiyor; code review’larda yapıcı ve net. Hem teknik hem iletişim tarafında ekibe güven veren bir ekip arkadaşı.",
+    avatarSrc: "/people/kerememirercan.jpg",
+    rating: 5,
+    link: "https://linkedin.com/in/kerem-emir-ercan-03914a239"
+  },
+  
+];
+
+
   return (
     <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
       {/* Navigation */}
@@ -154,6 +215,7 @@ const Portfolio = () => {
                 { id: 'skills', label: 'Yetenekler' },
                 { id: 'experience', label: 'Deneyim' },
                 { id: 'projects', label: 'Projeler' },
+                 { id: 'testimonials', label: 'Referanslar' },
                 { id: 'contact', label: 'İletişim' },
               ].map((item) => (
                 <button
@@ -185,6 +247,7 @@ const Portfolio = () => {
                 { id: 'skills', label: 'Yetenekler' },
                 { id: 'experience', label: 'Deneyim' },
                 { id: 'projects', label: 'Projeler' },
+                { id: 'testimonials', label: 'Referanslar' },
                 { id: 'contact', label: 'İletişim' },
               ].map((item) => (
                 <button
@@ -269,9 +332,9 @@ const Portfolio = () => {
               id="about-content"
             >
               <p className="text-lg text-gray-300 leading-relaxed">
-                Ben Mehmet, Yazılım Geliştiricisiyim. İskenderun Teknik Üniversitesi, Yönetim Bilişim Sistemleri bölümünden 3.48/4
+                Merhaba, ben Mehmet Karpuz, Yazılım Geliştiricisiyim. İskenderun Teknik Üniversitesi, Yönetim Bilişim Sistemleri bölümünden 3.48/4
                 ortalamayla mezun oldum. Yaklaşık 1 yıldır yazılım ekosisteminin bir parçasıyım ve sürekli öğrenme tutkusuyla
-                kendimi geliştiriyorum. Projelerimle şirkete değer katmaya devam ediyorum.
+                kendimi geliştiriyorum. Projelerimle şirketlere değer katmaya devam ediyorum.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">Microsoft teknolojileri (.NET, SQL Server) ile ölçeklenebilir ve performanslı web uygulamaları tasarlayıp geliştiriyorum.</p>
               <div className="flex flex-wrap gap-3">
@@ -488,6 +551,86 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+   {/* Testimonials Section (Proje kartları stili) */}
+<section id="testimonials" className="py-20 px-4 bg-slate-900">
+  <div className="max-w-7xl mx-auto">
+    <h2
+      data-animate="fade-up"
+      className={`text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent transition-all duration-1000 ${
+        visibleElements.has('testimonials-title') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+      id="testimonials-title"
+    >
+      Referanslar
+    </h2>
+
+    <div className="grid md:grid-cols-2 gap-8">
+      {testimonials.map((t, index) => (
+        <div
+          key={index}
+          data-animate="fade-up"
+          className={`bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 hover:transform hover:scale-105 ${
+            visibleElements.has(`testimonial-${index}`) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+          id={`testimonial-${index}`}
+          style={{ transitionDelay: `${index * 150}ms` }}
+        >
+          {/* Üst görsel alanı: avatarı proje görseli gibi üstte göster */}
+          <div className="h-48 relative overflow-hidden bg-white/5 flex items-center justify-center">
+            <Image
+              src={t.avatarSrc}
+              alt={`${t.name} fotoğrafı`}
+              width={128}
+              height={128}
+              className="rounded-full object-cover ring-2 ring-slate-200/50"
+              priority={index === 0}
+            />
+          </div>
+
+          {/* İçerik */}
+          <div className="p-6">
+            <div className="flex items-start justify-between mb-3">
+              <div>
+                <h3 className="text-xl font-bold">{t.name}</h3>
+                <p className="text-sm text-gray-400">{[t.role, t.company].filter(Boolean).join(' • ')}</p>
+              </div>
+
+              {/* İsteğe bağlı küçük yıldızlar */}
+         {typeof t.rating === 'number' && (() => {
+  const r = Math.round(t.rating ?? 0); // <-- güvenli sayı
+  return (
+    <div className="flex items-center gap-0.5" aria-label={`Rating: ${r}/5`}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg
+          key={i}
+          viewBox="0 0 24 24"
+          className={`w-4 h-4 ${i < r ? 'fill-yellow-400' : 'fill-slate-600'}`}
+          aria-hidden="true"
+        >
+          <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27Z" />
+        </svg>
+      ))}
+    </div>
+  );
+})()}
+            </div>
+
+            <p className="text-gray-300">“{t.quote}”</p>
+
+            {t.link && (
+              <a href={t.link} target="_blank" rel="noreferrer" className="inline-block mt-4 text-blue-400 hover:text-blue-300 transition-colors">
+                Profili gör
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+      
 
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-slate-800/50">
