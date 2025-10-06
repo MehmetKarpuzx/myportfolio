@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Github, Linkedin, Mail, Menu, X, MapPin, Calendar } from 'lucide-react';
 import Script from "next/script";
-import Testimonials, { type Testimonial } from "@/components/Testimonials";
+// import Testimonials, { type Testimonial } from "@/components/Testimonials";
 
 //--------------------------------------------------------------------------------
 // Ana Bileşen
