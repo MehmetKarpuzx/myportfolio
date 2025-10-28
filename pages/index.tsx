@@ -707,9 +707,13 @@ const Portfolio = () => {
           </div>
         </div>
       </footer>
-       {/* Chatbot – sadece bu sayfada çalışsın (div kapanmadan ÖNCE!) */}
-      <Script src="/js/chatbot-config.js" strategy="beforeInteractive" />
-      <Script src="/js/chatbot-widget.js" strategy="afterInteractive" />
+      
+      <Script src="/js/chatbot-config.js"  strategy="beforeInteractive" />
+      <Script src="/js/chatbot-widget.js"  strategy="afterInteractive" />
+      <Script src="/js/kapo-eggs.js"       strategy="afterInteractive" />
+      <Script src="/js/kapo-joy.js"        strategy="afterInteractive" />
+
+      
     </div>
     
   );

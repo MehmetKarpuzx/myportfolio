@@ -143,7 +143,7 @@
   dom.fab.className = "cb-fab";
   dom.fab.setAttribute("aria-label", "Sohbeti aç");
   dom.fab.innerHTML = `
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M12 3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       <rect x="4" y="6" width="16" height="12" rx="3" stroke="currentColor" stroke-width="2"/>
       <circle cx="9" cy="12" r="1.5" fill="currentColor"/>
