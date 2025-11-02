@@ -163,7 +163,7 @@ const Portfolio = () => {
     name: "Mahmut Kantar",
     role: "SAP MII MES Developer Manager",
     company: "Sanko Holding",
-    quote: "He's added value to our team in a short time. He's attentive to EF Core and SQL, open to feedback, and has strong communication skills. He's a reliable developer who delivers on the job with proactive behavior.",
+    quote: "He’s added value to our team in a short time. He's attentive to EF Core and SQL, open to feedback, and has strong communication skills. He's a reliable developer who delivers on the job with proactive behavior.",
     avatarSrc: "/people/mahmutkantar.jpg",
     link: "https://linkedin.com/in/mahmutkantar"
   },
@@ -171,7 +171,7 @@ const Portfolio = () => {
     name: "Recep Doğan",
     role: "Dart & Flutter Mobile Developer",
     company: "Sahinbey Municipality",
-    quote: "Mehmet is a hardworking, honest, and responsible team member. He communicates clearly and doesn't give up in the face of challenges. He approaches feedback with humility, has an exemplary work ethic, is highly motivated to learn, and is a software developer who doesn't hesitate to support his teammates.",
+    quote: "Mehmet is a hardworking, honest, and responsible team member. He communicates clearly and doesn’t give up in the face of challenges. He approaches feedback with humility, has an exemplary work ethic, is highly motivated to learn, and is a software developer who doesn't hesitate to support his teammates.",
     avatarSrc: "/people/recepdogan.jpg",
    
     link: "https://linkedin.com/in/recep-doğan-ab931322b"
@@ -180,7 +180,7 @@ const Portfolio = () => {
     name: "Volkan Kamalak",
     role: "Computer Engineer",
     company: "Sanko Holding",
-    quote: "He's a productive, hard-working, and determined young man. He's open and eager to learn new technologies. He's a team player and a strong communicator. I believe he'll achieve great things if he continues to improve himself.",
+    quote: "He’s a productive, hard-working, and determined young man. He's open and eager to learn new technologies. He's a team player and a strong communicator. I believe he'll achieve great things if he continues to improve himself.",
     avatarSrc: "/people/volkankamalak.jpg",
     link: "https://linkedin.com/in/volkan-kamalak-8898b0b5"
   },
@@ -339,7 +339,7 @@ const Portfolio = () => {
               id="about-content"
             >
               <p className="text-lg text-gray-300 leading-relaxed">
-                Hello, I'm Mehmet Karpuz, a Software Developer. I graduated from Iskenderun Technical University, Department of Management Information Systems, with a GPA of 3.48/4. I've been a part of the software ecosystem for about a year and, driven by a passion for continuous learning, I'm constantly improving myself. I continue to add value to companies with my projects.
+                Hello, I’m Mehmet Karpuz, a Software Developer. I graduated from Iskenderun Technical University, Department of Management Information Systems, with a GPA of 3.48/4. I’ve been a part of the software ecosystem for about a year and, driven by a passion for continuous learning, I’m constantly improving myself. I continue to add value to companies with my projects.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">I design and develop scalable and high-performance web applications with Microsoft technologies.</p>
               <div className="flex flex-wrap gap-3">
@@ -642,7 +642,7 @@ const Portfolio = () => {
             }`}
             id="contact-subtitle"
           >
-            Let's work together for new projects!
+            Let’s work together for new projects!
           </p>
           <div className="flex justify-center space-x-8 mb-12">
             {[
