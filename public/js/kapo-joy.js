@@ -69,7 +69,7 @@
     const pill = document.createElement('button');
     pill.type = 'button';
     pill.className = `${NS}-pill`;
-    pill.innerHTML = `<span>Robot Kapo ile Oyun</span>`;
+    pill.innerHTML = `<span>Game with Robot Kapo</span>`;
 
     anchor.appendChild(btn);
     anchor.appendChild(pill);

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Github, Linkedin, Mail, Menu, X, MapPin, Calendar } from 'lucide-react';
 import Script from "next/script";
+import TypeLooper from '@/components/TypeLooper';
 import type { Testimonial } from "../components/Testimonials"; //sadece kullanılan tipleri import et ! 
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
@@ -82,49 +83,51 @@ const Portfolio = () => {
 
   const experiences = [
     {
-      company: 'Şahinbey Belediyesi',
+      company: 'Sahinbey Municipality',
       logo: '/sahinbey-logo.jpg',
-      position: 'Yazılım Geliştiricisi',
-      period: 'Eylül 2025 - Günümüz',
-      location: 'Gaziantep, Türkiye',
+      position: 'Software Developer',
+      period: 'September 2025 - Present',
+      location: 'Gaziantep, Turkey',
       description:
-        'Belediyeye ait uygulamaların geliştirilmesi ve bakımından sorumluyum. Rolüm sistem mimarisi, arka uç geliştirme ve web uygulaması geliştirmeyi içeriyor. Sıfırdan uygulamalar oluşturup son kullanıcılara teslim ediyorum.',
+        'I am responsible for the development and maintenance of municipal applications. My role includes system architecture, back-end development, and web application development. I build applications from scratch and deliver them to end users.',
       technologies: ['.NET', 'ASP.NET Web API', 'React', 'Tailwind CSS- Bootstrap', 'MSSQL'],
       achievements: [
-        'Kurumsal projelerde yazılım mimarisi ve geliştirme süreçlerinde aktif rol aldım.',
-        'Yüksek performanslı ve ölçeklenebilir uygulamalar geliştirdim.',
-        'Çok kullanıcılı mimariler tasarladım.',
+        'I took an active role in software architecture and development processes in corporate projects.',
+        'I developed high-performance and scalable applications.',
+        'I designed multi-user architectures.',
       ],
     },
     {
       company: 'SANKO Holding',
       logo: '/sanko-logo.png',
-      position: 'Yazılım Geliştirme Stajyeri',
-      period: 'Şubat 2025 - Haziran 2025',
-      location: 'Gaziantep, Türkiye',
+      position: 'Software Developer Intern',
+      period: 'Feruary 2025 - June 2025',
+      location: 'Gaziantep, Turkey',
       description:
-        'Stajda .NET Core ile web tabanlı geliştirmelere katkı sağladım. API entegrasyonu ve veritabanı operasyonları yaptım. EF Core ve SQL Server ile veri modeli ve CRUD süreçlerinde çalıştım.',
+        'During my internship, I contributed to web-based development using .NET Core. I performed API integration and database operations. I also worked on data models and CRUD processes using EF Core and SQL Server.',
       technologies: ['ASP.NET Web API (8.0)', 'MSSQL', 'Blazor', 'Bootstrap', 'Git', 'GitHub'],
-      achievements: ['Kurumsal süreçlerde uçtan uca dijitalleşme ve otomasyon sağladım.', 'Modern teknolojilerle ekibe katkı sağladım.'],
+      achievements: ['I ensured end-to-end digitalization and automation in corporate processes.',
+         'I contributed to the team with modern technologies.'
+        ],
     },
     {
-      company: 'HA5 Arge İnovasyon ve Tasarım San. Ltd. Şti.',
+      company: 'HA5 R&D Innovation and Design Industry Ltd. Co.',
       
-      position: 'Yönetim Bilişim Sistemleri Uzmanı',
-      period: 'Haziran 2023 - Ekim 2023',
-      location: 'Gaziantep, Türkiye',
+      position: 'Managament Infortmation Systems Expert',
+      period: 'June 2023 - October 2023',
+      location: 'Gaziantep, Turkey',
       description:
-        'Kurum içi süreçleri dijitalleştirmeyi amaçlayan masaüstü uygulamaları geliştirdim. C#/.NET Framework ve SQL Server ile kullanıcı yönetimi, veri operasyonları ve raporlama içeren bir uygulama geliştirdim.',
+        'I developed desktop applications aimed at digitizing internal processes. I developed an application that included user management, data operations, and reporting using C#/.NET Framework and SQL Server.',
       technologies: ['ASP.NET MVC', 'MSSQL', 'Entity Framework', 'JQuery', 'Ajax'],
-      achievements: ['Depo ve stok yönetimi için sıfırdan uygulama geliştirdim'],
+      achievements: ['I developed an application from scratch for warehouse and inventory management'],
     },
   ];
 
   const projects = [
     {
-      title: 'Enerji Veri Toplama',
+      title: 'Energy Data Collection',
       description:
-        'Staj döneminde enerji tüketim verilerinin toplanması, işlenmesi ve görselleştirilmesi için modüler yazılım geliştirdim. .NET Core, EF Core ve SQL Server ile veri işlemleri; ASP.NET Core MVC ile arayüz.',
+        'During my internship, I developed modular software for collecting, processing, and visualizing energy consumption data. Data operations with .NET Core, EF Core, and SQL Server; interface with ASP.NET Core MVC.',
       tech: ['.NET Core', 'Entity Framework', 'MS SQL'],
       github: 'https://github.com/TufanYilmaz/EnerjiVeritoplamaTanimlama',
       image: '/enerji.jpeg',
@@ -132,16 +135,16 @@ const Portfolio = () => {
     {
       title: '.NET Core AI',
       description:
-        'Tek bir çözümde 20+ katmanlı projeyle OpenAI (Chat, Whisper, DALL·E), Google Vision & Tesseract OCR, RapidAPI entegrasyonları; ASP.NET MVC, EF Core & SQL Server ile çeşitli demolar.',
-      tech: ['ASP.NET MVC', 'MSSQL / T-SQL', 'Bootstrap', 'Entity Framework'],
+        'OpenAI (Chat, Whisper, DALL·E), Google Vision & Tesseract OCR, RapidAPI integrations with 20+ layered projects in a single solution; various demos with ASP.NET MVC, EF Core & SQL Server.',
+      tech: ['ASP.NET MVC', 'MSSQL / T-SQL', 'Bootstrap', 'ASP.NET Web API'],
       github: 'https://github.com/MehmetKarpuzx/NetCoreAI',
       image: '/netcoreai.jpeg',
     },
     {
-      title: 'SANShine Şirket Yönetim Portalı',
+      title: 'SANShine Company Managament Portal',
       description:
-        'Kurumsal süreçleri dijitalleştiren portal: ASP.NET MVC çok katmanlı mimari, EF Core/ADO.NET veri erişimi, RBAC yetkilendirme, responsive UI, jQuery & AJAX ile dinamik içerik.',
-      tech: ['.NET Core', 'MS SQL', 'Entity Framework Core', 'Çok Katmanlı Mimari'],
+        'Portal that digitizes corporate processes: ASP.NET MVC multi-layer architecture, EF Core/ADO.NET data access, RBAC authorization, responsive UI, dynamic content with jQuery & AJAX.',
+      tech: ['.NET Core', 'MS SQL', 'Entity Framework Core'],
       github: 'https://github.com/MehmetKarpuzx/SANShineCompanyManagamentPortal',
       image: '/sanshine.jpeg',
     },
@@ -150,56 +153,51 @@ const Portfolio = () => {
   const testimonials: Testimonial[] = [
   {
     name: "Tufan Yılmaz",
-    role: "Bilgisayar Mühendisi",
+    role: "Computer Engineer",
     company: "Sanko Holding",
-    quote: "Mehmet ile staj sürecinde birlikte çalıştık. .NET/ASP.NET tarafında yeni konuları çok hızlı kavrayıp kısa sürede üretken hale geldi. Kod kalitesine özen gösterir, PR’larda yapıcı geri bildirimleri dikkate alır ve görevlerini zamanında teslim eder. Problem çözme yaklaşımı, öğrenme iştahı ve takım içi iletişimiyle güven veren bir çalışma arkadaşıdır.",
+    quote: "I worked with Mehmet during his internship. He quickly grasped new topics in the .NET/ASP.NET area and quickly became productive. He prioritizes code quality, takes constructive feedback into account in PRs, and delivers his assignments on time. His problem-solving approach, eagerness to learn, and communication within the team make him a trustworthy colleague.",
     avatarSrc: "/people/tufanyilmaz.jpg",
-    rating: 5,
     link: "https://linkedin.com/in/yilmaztufan"
   },
   {
     name: "Mahmut Kantar",
     role: "SAP MII MES Developer Manager",
     company: "Sanko Holding",
-    quote: "Ekibimize kısa sürede değer kattı. EF Core ve SQL tarafında dikkatli, geri bildirimlere açık ve iletişimi güçlü. Proaktif tavrıyla işleri ileri taşıyan güvenilir bir geliştirici.",
+    quote: "He's added value to our team in a short time. He's attentive to EF Core and SQL, open to feedback, and has strong communication skills. He's a reliable developer who delivers on the job with proactive behavior.",
     avatarSrc: "/people/mahmutkantar.jpg",
-    rating: 5,
     link: "https://linkedin.com/in/mahmutkantar"
   },
   {
     name: "Recep Doğan",
-    role: "Dart & Flutter Mobil Geliştirici",
-    company: "Şahinbey Belediyesi",
-    quote: "Mehmet, çalışkan, dürüst ve sorumluluk sahibi bir ekip üyesi. Şeffaf iletişim kurar ve zorluklar karşısında pes etmez. Geri bildirimlere alçakgönüllü yaklaşır,iş ahlakıyla örnek, öğrenme motivasyonu yüksek, ekip arkadaşlarına destek olmaktan çekinmeyen bir yazılım geliştiricisi. ",
+    role: "Dart & Flutter Mobile Developer",
+    company: "Sahinbey Municipality",
+    quote: "Mehmet is a hardworking, honest, and responsible team member. He communicates clearly and doesn't give up in the face of challenges. He approaches feedback with humility, has an exemplary work ethic, is highly motivated to learn, and is a software developer who doesn't hesitate to support his teammates.",
     avatarSrc: "/people/recepdogan.jpg",
-    rating: 5,
+   
     link: "https://linkedin.com/in/recep-doğan-ab931322b"
   },
    {
     name: "Volkan Kamalak",
-    role: "Bilgisayar Mühendisi",
+    role: "Computer Engineer",
     company: "Sanko Holding",
-    quote: "Üretken,çalışkan ve azimli bir genç. Yeni teknolojileri öğrenmeye açık ve hevesli. Takım çalışmasına yatkın ve iletişimi kuvvetli. Kendisini geliştirmeye devam ederse çok iyi yerlere geleceğine inanıyorum.",
+    quote: "He's a productive, hard-working, and determined young man. He's open and eager to learn new technologies. He's a team player and a strong communicator. I believe he'll achieve great things if he continues to improve himself.",
     avatarSrc: "/people/volkankamalak.jpg",
-    rating: 5,
     link: "https://linkedin.com/in/volkan-kamalak-8898b0b5"
   },
    {
     name: "Mert İyibiçer",
-    role: "Bilgisayar Mühendisi",
+    role: "Computer Engineer",
     company: "",
-    quote: "Mehmet ile birlikte staj yaparken en çok disiplinine ve çözüm odaklı yaklaşımına hayran kaldım. Karmaşık görevleri parçalara ayırıp hızla hayata geçiriyor, PR’larda net ve yapıcı geri bildirim veriyor. Güvenilir, işbirliğine açık ve ekibe gerçek değer katan bir takım arkadaşı.",
+    quote: "While interning with Mehmet, I was most impressed by his discipline and solution-oriented approach. He breaks down complex tasks into pieces and executes them quickly, providing clear and constructive feedback on PRs. He is a reliable, collaborative teammate who adds real value to the team.",
     avatarSrc: "/people/mertiyibicer.jpg",
-    rating: 5,
     link: "https://linkedin.com/in/mert-iyibiçer-5331aa256"
   },
    {
     name: "Kerem Emir Ercan",
-    role: "Yazılım Mühendisi",
+    role: "Software Engineer",
     company: "",
-    quote: "Mehmet ile aynı ekipte staj yapmak büyük şanstı. Zor konuları hızla kavrayıp temiz, sürdürülebilir çözümler üretiyor; code review’larda yapıcı ve net. Hem teknik hem iletişim tarafında ekibe güven veren bir ekip arkadaşı.",
+    quote: "Interning on the same team as Mehmet was a great opportunity. He quickly grasps difficult topics and produces clean, sustainable solutions; he's constructive and clear in his code reviews. He's a teammate who inspires confidence in both technical and communication skills.",
     avatarSrc: "/people/kerememirercan.jpg",
-    rating: 5,
     link: "https://linkedin.com/in/kerem-emir-ercan-03914a239"
   },
   
@@ -219,13 +217,13 @@ const Portfolio = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {[
-                { id: 'home', label: 'Ana Sayfa' },
-                { id: 'about', label: 'Hakkımda' },
-                { id: 'skills', label: 'Yetenekler' },
-                { id: 'experience', label: 'Deneyim' },
-                { id: 'projects', label: 'Projeler' },
-                 { id: 'testimonials', label: 'Referanslar' },
-                { id: 'contact', label: 'İletişim' },
+                { id: 'home', label: 'Homepage' },
+                { id: 'about', label: 'About Me' },
+                { id: 'skills', label: 'Skills' },
+                { id: 'experience', label: 'Experience' },
+                { id: 'projects', label: 'Projects' },
+                 { id: 'testimonials', label: 'Testimonials' },
+                { id: 'contact', label: 'Contact' },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -251,13 +249,13 @@ const Portfolio = () => {
           <div className="md:hidden bg-slate-800 border-t border-slate-700">
             <div className="px-4 py-2 space-y-2">
               {[
-                { id: 'home', label: 'Ana Sayfa' },
-                { id: 'about', label: 'Hakkımda' },
-                { id: 'skills', label: 'Yetenekler' },
-                { id: 'experience', label: 'Deneyim' },
-                { id: 'projects', label: 'Projeler' },
-                { id: 'testimonials', label: 'Referanslar' },
-                { id: 'contact', label: 'İletişim' },
+                { id: 'home', label: 'Home Page' },
+                { id: 'about', label: 'About Me' },
+                { id: 'skills', label: 'Skills' },
+                { id: 'experience', label: 'Experience' },
+                { id: 'projects', label: 'Projects' },
+                { id: 'testimonials', label: 'Testimonials' },
+                { id: 'contact', label: 'Contact' },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -285,7 +283,7 @@ const Portfolio = () => {
             {/* Texts */}
             <div className="md:w-2/3 w-full text-center md:text-left md:pr-12 mt-8 md:mt-0">
               <h1 className="text-4xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
-                Mehmet Karpuz <span className="text-purple-400">Yazılım Geliştiricisi</span>
+                Mehmet Karpuz <span className="text-purple-400">Software Developer</span>
               </h1>
 
               <div className="flex justify-center md:justify-start space-x-6 mb-12">
@@ -330,7 +328,7 @@ const Portfolio = () => {
             }`}
             id="about-title"
           >
-            Hakkımda
+            About Me
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div
@@ -341,20 +339,18 @@ const Portfolio = () => {
               id="about-content"
             >
               <p className="text-lg text-gray-300 leading-relaxed">
-                Merhaba, ben Mehmet Karpuz, Yazılım Geliştiricisiyim. İskenderun Teknik Üniversitesi, Yönetim Bilişim Sistemleri bölümünden 3.48/4
-                ortalamayla mezun oldum. Yaklaşık 1 yıldır yazılım ekosisteminin bir parçasıyım ve sürekli öğrenme tutkusuyla
-                kendimi geliştiriyorum. Projelerimle şirketlere değer katmaya devam ediyorum.
+                Hello, I'm Mehmet Karpuz, a Software Developer. I graduated from Iskenderun Technical University, Department of Management Information Systems, with a GPA of 3.48/4. I've been a part of the software ecosystem for about a year and, driven by a passion for continuous learning, I'm constantly improving myself. I continue to add value to companies with my projects.
               </p>
-              <p className="text-lg text-gray-300 leading-relaxed">Microsoft teknolojileri (.NET, SQL Server) ile ölçeklenebilir ve performanslı web uygulamaları tasarlayıp geliştiriyorum.</p>
+              <p className="text-lg text-gray-300 leading-relaxed">I design and develop scalable and high-performance web applications with Microsoft technologies.</p>
               <div className="flex flex-wrap gap-3">
                 {[
-                  'Web Uygulama Geliştirme',
-                  'API ve Servis Geliştirme',
-                  'Veri Tabanı Çözümleri',
-                  'Kurumsal Projeler',
-                  'Takım ve Versiyon Kontrolü',
-                  'CRM (Müşteri İlişkileri Yönetim Sistemi)',
-                  'Yapay Zeka Proje Geliştirmeleri',
+                  'Web Application Development',
+                  'API ve Service Development',
+                  'Database Solutions',
+                  'Corporate Projects',
+                  'Team and Version Control',
+                  'CRM (Customer Relationship Management)',
+                  'AI Project Development',
                 ].map((tag, index) => (
                   <span key={tag} className="px-4 py-2 bg-blue-600/20 rounded-full text-sm border border-blue-500/30 transition-all duration-500" style={{ animationDelay: `${index * 100}ms` }}>
                     {tag}
@@ -387,7 +383,7 @@ const Portfolio = () => {
             }`}
             id="skills-title"
           >
-            Teknik Yetenekler
+            Technical Skills
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skill, index) => (
@@ -422,7 +418,7 @@ const Portfolio = () => {
             }`}
             id="experience-title"
           >
-            Deneyimlerim
+            Experience
           </h2>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
@@ -467,7 +463,7 @@ const Portfolio = () => {
                     <p className="text-gray-300 mb-4">{exp.description}</p>
 
                     <div className="mb-4">
-                      <h4 className="text-white font-semibold mb-2">Kullanılan Teknolojiler:</h4>
+                      <h4 className="text-white font-semibold mb-2">Technologies Used:</h4>
                       <div className="flex flex-wrap gap-2">
                         {exp.technologies.map((tech) => (
                           <span key={tech} className="px-3 py-1 bg-blue-600/20 rounded-full text-sm border border-blue-500/30">
@@ -478,7 +474,7 @@ const Portfolio = () => {
                     </div>
 
                     <div>
-                      <h4 className="text-white font-semibold mb-2">Başarılar:</h4>
+                      <h4 className="text-white font-semibold mb-2">Contributions:</h4>
                       <ul className="space-y-1">
                         {exp.achievements.map((achievement, i) => (
                           <li key={i} className="text-gray-300 text-sm flex items-start">
@@ -506,7 +502,7 @@ const Portfolio = () => {
             }`}
             id="projects-title"
           >
-            Projelerim
+            Projects
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
@@ -543,16 +539,9 @@ const Portfolio = () => {
                     {project.github && (
                       <a href={project.github} className="flex items-center text-blue-400 hover:text-blue-300 transition-colors">
                         <Github className="w-4 h-4 mr-2" />
-                        Kod
+                        Code
                       </a>
                     )}
-                    {/* Demo linki varsa göster */}
-                    {/* {project.demo && project.demo !== '#' && (
-                      <a href={project.demo} className="flex items-center text-purple-400 hover:text-purple-300 transition-colors">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
-                      </a>
-                    )} */}
                   </div>
                 </div>
               </div>
@@ -560,7 +549,6 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
-   {/* Testimonials Section (Proje kartları stili) */}
 <section id="testimonials" className="py-20 px-4 bg-slate-900">
   <div className="max-w-7xl mx-auto">
     <h2
@@ -570,7 +558,7 @@ const Portfolio = () => {
       }`}
       id="testimonials-title"
     >
-      Referanslar
+      Testimonials
     </h2>
 
     <div className="grid md:grid-cols-2 gap-8">
@@ -595,7 +583,6 @@ const Portfolio = () => {
               priority={index === 0}
             />
           </div>
-
           {/* İçerik */}
           <div className="p-6">
             <div className="flex items-start justify-between mb-3">
@@ -628,7 +615,7 @@ const Portfolio = () => {
 
             {t.link && (
               <a href={t.link} target="_blank" rel="noreferrer" className="inline-block mt-4 text-blue-400 hover:text-blue-300 transition-colors">
-                Profili gör
+                Github Profile
               </a>
             )}
           </div>
@@ -637,11 +624,6 @@ const Portfolio = () => {
     </div>
   </div>
 </section>
-
-
-      
-
-      {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-slate-800/50">
         <div className="max-w-4xl mx-auto text-center">
           <h2
@@ -651,7 +633,7 @@ const Portfolio = () => {
             }`}
             id="contact-title"
           >
-            İletişim
+            Contact
           </h2>
           <p
             data-animate="fade-up"
@@ -660,13 +642,13 @@ const Portfolio = () => {
             }`}
             id="contact-subtitle"
           >
-            Yeni projeler için birlikte çalışalım!
+            Let's work together for new projects!
           </p>
           <div className="flex justify-center space-x-8 mb-12">
             {[
               { icon: <Github className="w-8 h-8" />, label: 'GitHub', href: 'https://github.com/MehmetKarpuzx' },
               { icon: <Linkedin className="w-8 h-8" />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mehmet-karpuz/' },
-              { icon: <Mail className="w-8 h-8" />, label: 'E-posta', href: 'mailto:mehmetkarpuz.business@gmail.com' },
+              { icon: <Mail className="w-8 h-8" />, label: 'E-Mail', href: 'mailto:mehmetkarpuz.business@gmail.com' },
             ].map((social, index) => (
               <a
                 key={social.label}
@@ -694,29 +676,39 @@ const Portfolio = () => {
             style={{ transitionDelay: '700ms' }}
             onClick={() => window.open('mailto:mehmetkarpuz.business@gmail.com', '_blank')}
           >
-            Benimle İletişime Geç
+            Contact Me
           </button>
         </div>
+        <div className="mt-10 flex justify-center">
+        <div className="text-center font-mono text-lg text-slate-300 w-[40ch] whitespace-nowrap">
+          <TypeLooper
+            texts={[
+               "Clean code, fast APIs and happy users.",
+               ".NET + React for reliable products.",
+               "Open to new projects — say hi!"
+           ]}
+             typingSpeed={55}
+             eraseSpeed={30}
+             pause={1200}
+         />
+        </div>
+      </div>
       </section>
 
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-slate-800">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center text-gray-400">
-            <p className="mb-4 md:mb-0">© 2025 Mehmet Karpuz. Tüm hakları saklıdır.</p>
+            <p className="mb-4 md:mb-0">© 2025 Mehmet Karpuz. All rights reserved.</p>
           </div>
         </div>
       </footer>
-      
       <Script src="/js/chatbot-config.js"  strategy="beforeInteractive" />
       <Script src="/js/chatbot-widget.js"  strategy="afterInteractive" />
       <Script src="/js/kapo-eggs.js"       strategy="afterInteractive" />
       <Script src="/js/kapo-joy.js"        strategy="afterInteractive" />
-
-      
     </div>
     
   );
 };
-
 export default Portfolio;

@@ -6,10 +6,10 @@
   const QA  = Array.isArray(window.CHATBOT_QA) ? window.CHATBOT_QA : [];
   const OPT = Object.assign({
     title: "Robot Kapo",
-    placeholder: "Sorularda ara…",
+    placeholder: "Search Questions...",
     theme: "auto",
     primary: "#2563eb",
-    labelText: "Robot Kapo ile sohbet"
+    labelText: "Chat with Robot Kapo"
   }, window.CHATBOT_OPTIONS || {});
 
   if (!QA.length) console.warn("chatbot-widget: window.CHATBOT_QA boş.");
@@ -29,7 +29,7 @@
   const storage = PERSIST_MODE === "session" ? window.sessionStorage : window.localStorage;
   const TTL = typeof OPT.historyTTL === "number" ? OPT.historyTTL : 0;
 
-  const DECISION_KEY = "robotKapo.qaDecision"; // Evet/Hayır kararı
+  const DECISION_KEY = "robotKapo.qaDecision"; 
 
   const dom = {};
 
@@ -141,7 +141,7 @@
 
   dom.fab = document.createElement("button");
   dom.fab.className = "cb-fab";
-  dom.fab.setAttribute("aria-label", "Sohbeti aç");
+  dom.fab.setAttribute("aria-label", "Open Chat");
   dom.fab.innerHTML = `
     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M12 3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -153,7 +153,7 @@
 
   dom.label = document.createElement("div");
   dom.label.className = "cb-label";
-  dom.label.textContent = OPT.labelText || "Sohbet robotu";
+  dom.label.textContent = OPT.labelText || "Chat Robot";
 
   dom.wrap.appendChild(dom.label);
   dom.wrap.appendChild(dom.fab);
@@ -236,23 +236,23 @@
     const wrap = document.createElement("div");
     wrap.className = "cb-msg cb-bot";
     const q = document.createElement("div");
-    q.textContent = "Başka soru sormak ister misiniz?";
+    q.textContent = "Do you want to ask another question?";
     const btns = document.createElement("div");
     btns.className = "cb-followup";
 
     const yes = document.createElement("button");
-    yes.className = "cb-btn is-primary"; yes.textContent = "Evet";
+    yes.className = "cb-btn is-primary"; yes.textContent = "Yes";
     yes.addEventListener("click", () => {
-      addMessage("Evet", true);
-      const t = showTyping(700); t.auto("Tamam, işte başka sorular:");
+      addMessage("Yes", true);
+      const t = showTyping(700); t.auto("Okey,Here are some other questions:");
       setTimeout(() => { renderChips(QA); saveHistory(); }, 800);
     });
 
     const no = document.createElement("button");
-    no.className = "cb-btn"; no.textContent = "Hayır";
+    no.className = "cb-btn"; no.textContent = "No";
     no.addEventListener("click", () => {
-      addMessage("Hayır", true);
-      const t = showTyping(650); t.auto("Tanıştığıma memnun oldum. İstediğinde tekrar çağırabilirsin. 👋");
+      addMessage("No", true);
+      const t = showTyping(650); t.auto("Nice to meet you. Call me again anytime.👋");
       dom.chips.innerHTML = "";
       saveHistory();
     });
@@ -291,34 +291,34 @@
   function renderOnboarding() {
     const remembered = localStorage.getItem(DECISION_KEY);
     if (remembered === "yes") { renderChips(QA); return; }
-    if (remembered === "no")  { addMessage("Merak ettiğin bir şey olursa, senin için buradayım. 🙌", false); dom.chips.innerHTML = ""; return; }
+    if (remembered === "no")  { addMessage("If you have any questions, I'm here for you. 🙌", false); dom.chips.innerHTML = ""; return; }
 
     const wrap = document.createElement("div");
     wrap.className = "cb-msg cb-bot";
 
     const q = document.createElement("div");
-    q.textContent = "Mehmet hakkında soru sormak ister misin?";
+    q.textContent = "Do you want to ask questions about Mehmet?";
 
     const btns = document.createElement("div");
     btns.className = "cb-followup";
 
     const yes = document.createElement("button");
-    yes.className = "cb-btn is-primary"; yes.textContent = "Evet";
+    yes.className = "cb-btn is-primary"; yes.textContent = "Yes";
     yes.addEventListener("click", () => {
-      addMessage("Evet", true);
+      addMessage("Yes", true);
       localStorage.setItem(DECISION_KEY, "yes");
       const t = showTyping(600);
-      t.auto("Harika! İşte sık sorulan başlıklar:");
+      t.auto("Great! Here are the frequently asked questions:");
       setTimeout(() => { renderChips(QA); saveHistory(); }, 700);
     });
 
     const no = document.createElement("button");
-    no.className = "cb-btn"; no.textContent = "Hayır";
+    no.className = "cb-btn"; no.textContent = "No";
     no.addEventListener("click", () => {
-      addMessage("Hayır", true);
+      addMessage("No", true);
       localStorage.setItem(DECISION_KEY, "no");
       const t = showTyping(600);
-      t.auto("Merak ettiğin bir şey olursa, senin için buradayım. 🙌");
+      t.auto("If you have any questions, I'm here for you.🙌");
       dom.chips.innerHTML = "";
       saveHistory();
     });
@@ -343,7 +343,7 @@
 
   function initialRenderInner(/*forceAsk = false*/) {
     if (!dom.messages.querySelector('.cb-msg[data-welcome]')) {
-      addMessage(OPT.welcomeText || "Merhaba! ...", false, { "data-welcome": "" });
+      addMessage(OPT.welcomeText || "Hi! ...", false, { "data-welcome": "" });
     }
     renderOnboarding();
   }

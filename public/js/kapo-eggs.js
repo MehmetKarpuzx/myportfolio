@@ -66,15 +66,15 @@
     const card = el('div', `${NS}-card`);
     const top = el('div', `${NS}-row`);
     top.append(
-      el('h3', '', '🧩 Kapo Eğlence Alanı'),
-      el('button', `${NS}-close`, '×', { title:'Kapat', 'aria-label':'Kapat', onclick:()=>ov.remove() })
+      el('h3', '', '🧩 Kapo Fun Room'),
+      el('button', `${NS}-close`, '×', { title:'Close', 'aria-label':'Close', onclick:()=>ov.remove() })
     );
     const grid = el('div', `${NS}-grid`);
     grid.append(
-      el('button', `${NS}-btn`, '🤖 Kapo Dansı', { onclick:()=>{ ov.remove(); kapoDance(); } }),
-      el('button', `${NS}-btn`, '🎮 Kapo Yakala', { onclick:()=>{ ov.remove(); openGame(); } }),
+      el('button', `${NS}-btn`, '🤖 Kapo Dance', { onclick:()=>{ ov.remove(); kapoDance(); } }),
+      el('button', `${NS}-btn`, '🎮 Kapo Catch', { onclick:()=>{ ov.remove(); openGame(); } }),
     );
-    const hint = el('div', `${NS}-hint`, 'Kapo Yakala oyununda yaptığınız skoru mail olarak atıp süprizler kazanabilirsiniz.');
+    const hint = el('div', `${NS}-hint`, 'You can win surprises by sending your score in the Kapo Catch game via e-mail.🎁');
     card.append(top, grid, hint);
     ov.append(card);
     document.body.appendChild(ov);
@@ -108,12 +108,12 @@ function openGame() {
   const ov = el('div', `${NS}-game`);
   const box = el('div', `${NS}-gamebox`);
   const hud = el('div', `${NS}-hud`);
-  const scoreEl = el('b', '', 'Skor: 0');
-  const timeEl = el('b', '', `Süre: ${GAME_DURATION}`);
-  const closeBtn = el('button', `${NS}-close`, '×', { title:'Kapat', 'aria-label':'Kapat', onclick:()=>cleanup() });
+  const scoreEl = el('b', '', 'Score: 0');
+  const timeEl = el('b', '', `Time: ${GAME_DURATION}`);
+  const closeBtn = el('button', `${NS}-close`, '×', { title:'Close', 'aria-label':'Close', onclick:()=>cleanup() });
   hud.append(scoreEl, timeEl, closeBtn);
   const board = el('div', `${NS}-board`);
-  const start = el('button', `${NS}-start`, 'Başla!');
+  const start = el('button', `${NS}-start`, 'Start!');
   board.append(start);
   box.append(hud, board);
   ov.append(box);
@@ -133,7 +133,7 @@ function openGame() {
     tick();
     spawnTimer = setInterval(spawn, SPAWN_EVERY_MS);
     clockTimer = setInterval(() => {
-      t--; timeEl.textContent = `Süre: ${t}`;
+      t--; timeEl.textContent = `Time: ${t}`;
       if (t <= 0) finish();
     }, 1000);
   }
@@ -151,7 +151,7 @@ function openGame() {
     target.style.top  = y + 'px';
     target.onclick = () => {
       target.classList.add(`${NS}-hit`);
-      score += 1; scoreEl.textContent = `Skor: ${score}`;
+      score += 1; scoreEl.textContent = `Score: ${score}`;
       setTimeout(()=>target.remove(), 80);
     };
     board.appendChild(target);
@@ -168,15 +168,15 @@ function openGame() {
     display:'flex', flexDirection:'column', alignItems:'center', gap:'12px'
   });
 
-  const msg = el('div', '', `Oyun bitti! Skorun: ${score}`);
+  const msg = el('div', '', `Game Over! Your Score: ${score}`);
   Object.assign(msg.style, { fontWeight:'600', textAlign:'center' });
 
-  const again = el('button', `${NS}-start`, 'Tekrar oyna');
+  const again = el('button', `${NS}-start`, 'Play Again');
   again.onclick = () => {
     // temiz başlangıç
     board.innerHTML = '';
     score = 0; t = GAME_DURATION;
-    scoreEl.textContent = 'Skor: 0';
+    scoreEl.textContent = 'Score: 0';
     tick();
     beginGame(); // direkt başlat
   };
@@ -193,7 +193,7 @@ function openGame() {
     ov.remove();
   }
 
-  function tick(){ timeEl.textContent = `Süre: ${t}`; }
+  function tick(){ timeEl.textContent = `Time: ${t}`; }
 }
 
 
@@ -219,7 +219,7 @@ function openGame() {
     </svg>`;
   }
 
-  // Dışa açılan API (tema kaldırıldı)
+
   window.KAPO = {
     menu: openMenu,
     dance: kapoDance,
